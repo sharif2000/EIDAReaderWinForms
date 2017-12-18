@@ -24,23 +24,28 @@ namespace HelloEIDA
         {
             try
             {
+                #region Steps 1-5
                 readerMgr = new ReaderManagement();
                 readerMgr.EstablishContext();
 
                 selectedReader = selectReader();
                 IsConnected = selectedReader.IsConnected();
                 isUAE = ATRSetting.Is_UAE_Card(selectedReader.ATR);
+                #endregion
 
+                #region Step 6
                 /* Step 6 : In order to use EIDA "secure messaging" in "local mode", the function
-                "IDCardWrapper.LoadConfiguration" shall be called to load the "secure messaging modules configurations"
-                from the sm.cfg file "C:\Program Files\EIDA Toolkit\Libs\sm.cfg" 
-                Sample configuration of is described in appendix A. */
+                        "IDCardWrapper.LoadConfiguration" shall be called to load the "secure messaging modules configurations"
+                        from the sm.cfg file "C:\Program Files\EIDA Toolkit\Libs\sm.cfg" 
+                        Sample configuration of is described in appendix A. */
                 IDCardWrapper.LoadConfiguration();
+                #endregion
 
+                #region Step 7
                 /* Step 7 : Once PCSCReader object is acquired in a CONNECTED state and with right type,
-                application can extract the EIDA ID Card related information such as Card Serial Number, and Chip Serial Number.
-                The retrieved information will be in binary format. By using the format conversion functions of the Toolkit, 
-                Developers can convert data from binary format to string representation. Refer to Utils class for a sample conversion implementation. */
+                        application can extract the EIDA ID Card related information such as Card Serial Number, and Chip Serial Number.
+                        The retrieved information will be in binary format. By using the format conversion functions of the Toolkit, 
+                        Developers can convert data from binary format to string representation. Refer to Utils class for a sample conversion implementation. */
 
                 CardInfo cardInfo = selectedReader.GetCardInfo();
                 byte[] csn = cardInfo.GetCardSerialNumber();
@@ -55,22 +60,27 @@ namespace HelloEIDA
                 byte[] maxFailed = cardInfo.GetMaxFailedMatch();
                 int cardVersion = cardInfo.GetCardVersion();
                 String csnHex = Utils.ByteArrayToHex(csn);
+                #endregion
 
+                #region Step 8
                 /* Step 8 : Reading the "Card holder public data", using the "CardHolderPublicData" Class 
-                */
+                        */
 
                 PublicDataFacade publicDataFacade = selectedReader.GetPublicDataFacade();
-                CardHolderPublicData publicData = publicDataFacade.ReadPublicData(true,true, true, true, false);
+                CardHolderPublicData publicData = publicDataFacade.ReadPublicData(true, true, true, true, false);
                 byte[] fullNameBin = publicData.FullName;
                 String fullName = Utils.ByteArrayToUTF8String(fullNameBin);
                 byte[] sexBin = publicData.Sex;
                 String sex = Utils.ByteArrayToUTF8String(sexBin);
                 byte[] issueDateBin = publicData.IssueDate;
                 String issueDate = Utils.ByteArrayToStringDate(issueDateBin);
-                byte[] photography = publicData.Photography;  
-                pictureBox1.Image = (Image) new ImageConverter().ConvertFrom(photography);
-                // use publicData.getXXX as needed
-                //…
+                byte[] photography = publicData.Photography;
+                pictureBox1.Image = (Image)new ImageConverter().ConvertFrom(photography);
+                // use publicData.getX as needed
+                //… 
+                #endregion
+
+                //ToDo: next steps go here 
 
                 readerMgr.CloseContext();
             }
