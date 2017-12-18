@@ -1,7 +1,6 @@
-﻿using System.Windows.Forms;
-using EmiratesId.AE;
-using EmiratesId.AE.Exceptions;
+﻿using EmiratesId.AE.Exceptions;
 using EmiratesId.AE.ReadersMgt;
+using System.Windows.Forms;
 
 namespace HelloEIDA
 {
