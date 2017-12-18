@@ -1,6 +1,8 @@
 ﻿using EmiratesId.AE;
 using EmiratesId.AE.Exceptions;
 using EmiratesId.AE.ReadersMgt;
+using EmiratesId.AE.Utils;
+using System;
 using System.Windows.Forms;
 
 namespace HelloEIDA
@@ -33,7 +35,25 @@ namespace HelloEIDA
                 Sample configuration of is described in appendix A. */
                 IDCardWrapper.LoadConfiguration();
 
+                /* Step 7 : Once PCSCReader object is acquired in a CONNECTED state and with right type,
+                application can extract the EIDA ID Card related information such as Card Serial Number, and Chip Serial Number.
+                The retrieved information will be in binary format. By using the format conversion functions of the Toolkit, 
+                Developers can convert data from binary format to string representation. Refer to Utils class for a sample conversion implementation. */
 
+                CardInfo cardInfo = selectedReader.GetCardInfo();
+                byte[] csn = cardInfo.GetCardSerialNumber();
+                byte[] chipSN = cardInfo.GetChipSerialNumber();
+                byte[] cplc0101 = cardInfo.GetCPLC0101();
+                byte[] cplc9f7f = cardInfo.GetCPLC9F7F();
+                byte[] isn = cardInfo.GetIssuerSerialNumber();
+                byte[] irn = cardInfo.GetIssuerReferenceNumber();
+                byte[] mocSN = cardInfo.GetMOCSerialNumber();
+                byte[] mocAppState = cardInfo.GetMOCAppletState();
+                byte[] mocAlgVer = cardInfo.GetMOCAlgorithmVersion();
+                byte[] maxFailed = cardInfo.GetMaxFailedMatch();
+                int cardVersion = cardInfo.GetCardVersion();
+                String csnHex = Utils.ByteArrayToHex(csn);
+                
 
 
                 readerMgr.CloseContext();
