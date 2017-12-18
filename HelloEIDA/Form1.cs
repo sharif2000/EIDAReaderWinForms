@@ -1,4 +1,5 @@
-﻿using EmiratesId.AE.Exceptions;
+﻿using EmiratesId.AE;
+using EmiratesId.AE.Exceptions;
 using EmiratesId.AE.ReadersMgt;
 using System.Windows.Forms;
 
@@ -25,7 +26,15 @@ namespace HelloEIDA
                 selectedReader = selectReader();
                 IsConnected = selectedReader.IsConnected();
                 isUAE = ATRSetting.Is_UAE_Card(selectedReader.ATR);
-                //ToDo : next steps go here 
+
+                /* Step 6 : In order to use EIDA "secure messaging" in "local mode", the function
+                "IDCardWrapper.LoadConfiguration" shall be called to load the "secure messaging modules configurations"
+                from the sm.cfg file "C:\Program Files\EIDA Toolkit\Libs\sm.cfg" 
+                Sample configuration of is described in appendix A. */
+                IDCardWrapper.LoadConfiguration();
+
+
+
 
                 readerMgr.CloseContext();
             }
