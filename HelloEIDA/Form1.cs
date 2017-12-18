@@ -2,8 +2,10 @@
 using EmiratesId.AE.Exceptions;
 using EmiratesId.AE.ReadersMgt;
 using EmiratesId.AE.Utils;
+using EmiratesId.AE.PublicData;
 using System;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace HelloEIDA
 {
@@ -53,8 +55,22 @@ namespace HelloEIDA
                 byte[] maxFailed = cardInfo.GetMaxFailedMatch();
                 int cardVersion = cardInfo.GetCardVersion();
                 String csnHex = Utils.ByteArrayToHex(csn);
-                
 
+                /* Step 8 : Reading the "Card holder public data", using the "CardHolderPublicData" Class 
+                */
+
+                PublicDataFacade publicDataFacade = selectedReader.GetPublicDataFacade();
+                CardHolderPublicData publicData = publicDataFacade.ReadPublicData(true,true, true, true, false);
+                byte[] fullNameBin = publicData.FullName;
+                String fullName = Utils.ByteArrayToUTF8String(fullNameBin);
+                byte[] sexBin = publicData.Sex;
+                String sex = Utils.ByteArrayToUTF8String(sexBin);
+                byte[] issueDateBin = publicData.IssueDate;
+                String issueDate = Utils.ByteArrayToStringDate(issueDateBin);
+                byte[] photography = publicData.Photography;  
+                pictureBox1.Image = (Image) new ImageConverter().ConvertFrom(photography);
+                // use publicData.getXXX as needed
+                //…
 
                 readerMgr.CloseContext();
             }
@@ -85,3 +101,6 @@ namespace HelloEIDA
         #endregion Constructor
     }
 }
+ 
+ 
+ 
