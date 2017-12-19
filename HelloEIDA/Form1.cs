@@ -1,11 +1,11 @@
 ﻿using EmiratesId.AE;
 using EmiratesId.AE.Exceptions;
+using EmiratesId.AE.PublicData;
 using EmiratesId.AE.ReadersMgt;
 using EmiratesId.AE.Utils;
-using EmiratesId.AE.PublicData;
 using System;
-using System.Windows.Forms;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace HelloEIDA
 {
@@ -17,6 +17,7 @@ namespace HelloEIDA
         private PCSCReader selectedReader;
         private bool IsConnected;
         private bool isUAE;
+        PublicDataFacade publicDataFacade;
 
         #endregion Global Objects
 
@@ -25,26 +26,31 @@ namespace HelloEIDA
             try
             {
                 #region Steps 1-5
+
                 readerMgr = new ReaderManagement();
                 readerMgr.EstablishContext();
 
                 selectedReader = selectReader();
                 IsConnected = selectedReader.IsConnected();
                 isUAE = ATRSetting.Is_UAE_Card(selectedReader.ATR);
-                #endregion
+
+                #endregion Steps 1-5
 
                 #region Step 6
+
                 /* Step 6 : In order to use EIDA "secure messaging" in "local mode", the function
                         "IDCardWrapper.LoadConfiguration" shall be called to load the "secure messaging modules configurations"
-                        from the sm.cfg file "C:\Program Files\EIDA Toolkit\Libs\sm.cfg" 
+                        from the sm.cfg file "C:\Program Files\EIDA Toolkit\Libs\sm.cfg"
                         Sample configuration of is described in appendix A. */
                 IDCardWrapper.LoadConfiguration();
-                #endregion
+
+                #endregion Step 6
 
                 #region Step 7
+
                 /* Step 7 : Once PCSCReader object is acquired in a CONNECTED state and with right type,
                         application can extract the EIDA ID Card related information such as Card Serial Number, and Chip Serial Number.
-                        The retrieved information will be in binary format. By using the format conversion functions of the Toolkit, 
+                        The retrieved information will be in binary format. By using the format conversion functions of the Toolkit,
                         Developers can convert data from binary format to string representation. Refer to Utils class for a sample conversion implementation. */
 
                 CardInfo cardInfo = selectedReader.GetCardInfo();
@@ -60,13 +66,14 @@ namespace HelloEIDA
                 byte[] maxFailed = cardInfo.GetMaxFailedMatch();
                 int cardVersion = cardInfo.GetCardVersion();
                 String csnHex = Utils.ByteArrayToHex(csn);
-                #endregion
+
+                #endregion Step 7
 
                 #region Step 8
-                /* Step 8 : Reading the "Card holder public data", using the "CardHolderPublicData" Class 
-                        */
 
-                PublicDataFacade publicDataFacade = selectedReader.GetPublicDataFacade();
+                /* Step 8 : Reading the "Card Holder Public Data", using the "CardHolderPublicData" Class */
+
+                publicDataFacade = selectedReader.GetPublicDataFacade();
                 CardHolderPublicData publicData = publicDataFacade.ReadPublicData(true, true, true, true, false);
                 byte[] fullNameBin = publicData.FullName;
                 String fullName = Utils.ByteArrayToUTF8String(fullNameBin);
@@ -77,10 +84,28 @@ namespace HelloEIDA
                 byte[] photography = publicData.Photography;
                 pictureBox1.Image = (Image)new ImageConverter().ConvertFrom(photography);
                 // use publicData.getX as needed
-                //… 
-                #endregion
+                //…
 
-                //ToDo: next steps go here 
+                #endregion Step 8
+
+                #region Step 9
+                /* Step 9 : Reading the "Card Holder Public Data" is extended to support reading additional public data fields
+                        added in V2 cards such as address, passport information, Company name, Qualification, Field of Study, etc...  */
+
+                CardHolderPublicDataEx publicDataEx = publicDataFacade.ReadPublicDataEx(true, true, true, true, false, true, true, true);
+                byte[] fullNameBinEx = publicDataEx.FullName;
+                String fullNameEx = Utils.ByteArrayToUTF8String(fullNameBin);
+                byte[] sexBinEx = publicDataEx.Sex;
+                String sexEx = Utils.ByteArrayToUTF8String(sexBin);
+                byte[] issueDateBinEx = publicDataEx.IssueDate;
+                String issueDateEx = Utils.ByteArrayToStringDate(issueDateBin);
+                byte[] photographyEx = publicDataEx.Photography;
+                byte[] FieldofStudyEnglishBin = publicDataEx.FieldofStudyEnglish;
+                String FieldofStudyEnglish = Utils.ByteArrayToUTF8String(FieldofStudyEnglishBin);
+                byte[] FieldofStudyArabicBin = publicDataEx.FieldofStudyArabic;
+                String FieldofStudyArabic = Utils.ByteArrayToUTF8String(FieldofStudyArabicBin);
+
+                #endregion
 
                 readerMgr.CloseContext();
             }
@@ -111,6 +136,3 @@ namespace HelloEIDA
         #endregion Constructor
     }
 }
- 
- 
- 
