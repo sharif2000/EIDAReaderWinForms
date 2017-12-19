@@ -117,7 +117,15 @@ namespace HelloEIDA
                 //String firstNameChild1 = Utils.ByteArrayToUTF8String(firstNameBinChild1);
                 #endregion
 
+                #region Step 11 "Verifying Card Genuine in local mode" (Skipped because it needs a special config in sm.cfg)
+                /* Step 11 : Verifying Card Genuine in local mode 
+                In order to invoke isCardGenuine() function in the local mode, the sm.cfg configuration file
+                must be configured as specified in Appendix A, according to the availability of 
+                secure messaging modules (HSM, SAM or multiple SAM, or Software SAM). */
 
+                bool isGenuine = publicDataFacade.IsCardGenuine();
+
+                #endregion
 
                 readerMgr.CloseContext();
             }
