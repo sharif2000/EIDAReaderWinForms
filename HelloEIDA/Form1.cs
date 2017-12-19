@@ -4,6 +4,7 @@ using EmiratesId.AE.FamilyBookData;
 using EmiratesId.AE.PublicData;
 using EmiratesId.AE.ReadersMgt;
 using EmiratesId.AE.Utils;
+using EmiratesId.AE.Containers;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -126,6 +127,8 @@ namespace HelloEIDA
                 bool isGenuine = publicDataFacade.IsCardGenuine();
 
                 #endregion
+
+
 
                 readerMgr.CloseContext();
             }
