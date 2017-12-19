@@ -1,5 +1,6 @@
 ﻿using EmiratesId.AE;
 using EmiratesId.AE.Exceptions;
+using EmiratesId.AE.FamilyBookData;
 using EmiratesId.AE.PublicData;
 using EmiratesId.AE.ReadersMgt;
 using EmiratesId.AE.Utils;
@@ -106,6 +107,17 @@ namespace HelloEIDA
                 String FieldofStudyArabic = Utils.ByteArrayToUTF8String(FieldofStudyArabicBin);
 
                 #endregion
+
+                #region Step 10 "Family Book Data" (Skipped because it needs a special config in sm.cfg)
+                /* Step 10 : Reading the "Family Book Data" */
+
+                //FamilyBookDataFacade familyBookDataFacade = selectedReader.GetFamilyBookDataFacade();
+                //FamilyBookData familyBookData = familyBookDataFacade.ReadFamilyBookData(false);
+                //byte[] firstNameBinChild1 = familyBookData.Child1.FirstNameArabic;
+                //String firstNameChild1 = Utils.ByteArrayToUTF8String(firstNameBinChild1);
+                #endregion
+
+
 
                 readerMgr.CloseContext();
             }
