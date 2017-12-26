@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace HelloEIDA
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         #region Global Objects
 
@@ -151,7 +151,7 @@ namespace HelloEIDA
 
         #region Constructor
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
