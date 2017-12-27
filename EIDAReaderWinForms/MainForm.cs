@@ -1,10 +1,8 @@
 ﻿using EmiratesId.AE;
 using EmiratesId.AE.Exceptions;
-using EmiratesId.AE.FamilyBookData;
 using EmiratesId.AE.PublicData;
 using EmiratesId.AE.ReadersMgt;
 using EmiratesId.AE.Utils;
-using EmiratesId.AE.Containers;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -19,7 +17,7 @@ namespace EIDAReaderWinForms
         private PCSCReader selectedReader;
         private bool IsConnected;
         private bool isUAE;
-        PublicDataFacade publicDataFacade;
+        private PublicDataFacade publicDataFacade;
 
         #endregion Global Objects
 
@@ -84,13 +82,14 @@ namespace EIDAReaderWinForms
                 byte[] issueDateBin = publicData.IssueDate;
                 String issueDate = Utils.ByteArrayToStringDate(issueDateBin);
                 byte[] photography = publicData.Photography;
-                pictureBox1.Image = (Image)new ImageConverter().ConvertFrom(photography);
+                Image PersonalPhoto = (Image)new ImageConverter().ConvertFrom(photography);
                 // use publicData.getX as needed
                 //…
 
                 #endregion Step 8
 
                 #region Step 9
+
                 /* Step 9 : Reading the "Card Holder Public Data" is extended to support reading additional public data fields
                         added in V2 cards such as address, passport information, Company name, Qualification, Field of Study, etc...  */
 
@@ -107,28 +106,29 @@ namespace EIDAReaderWinForms
                 byte[] FieldofStudyArabicBin = publicDataEx.FieldofStudyArabic;
                 String FieldofStudyArabic = Utils.ByteArrayToUTF8String(FieldofStudyArabicBin);
 
-                #endregion
+                #endregion Step 9
 
                 #region Step 10 "Family Book Data" (Skipped because it needs a special config in sm.cfg)
+
                 /* Step 10 : Reading the "Family Book Data" */
 
                 //FamilyBookDataFacade familyBookDataFacade = selectedReader.GetFamilyBookDataFacade();
                 //FamilyBookData familyBookData = familyBookDataFacade.ReadFamilyBookData(false);
                 //byte[] firstNameBinChild1 = familyBookData.Child1.FirstNameArabic;
                 //String firstNameChild1 = Utils.ByteArrayToUTF8String(firstNameBinChild1);
-                #endregion
+
+                #endregion Step 10 "Family Book Data" (Skipped because it needs a special config in sm.cfg)
 
                 #region Step 11 "Verifying Card Genuine in local mode" (Skipped because it needs a special config in sm.cfg)
-                /* Step 11 : Verifying Card Genuine in local mode 
+
+                /* Step 11 : Verifying Card Genuine in local mode
                 In order to invoke isCardGenuine() function in the local mode, the sm.cfg configuration file
-                must be configured as specified in Appendix A, according to the availability of 
+                must be configured as specified in Appendix A, according to the availability of
                 secure messaging modules (HSM, SAM or multiple SAM, or Software SAM). */
 
                 bool isGenuine = publicDataFacade.IsCardGenuine();
 
-                #endregion
-
-
+                #endregion Step 11 "Verifying Card Genuine in local mode" (Skipped because it needs a special config in sm.cfg)
 
                 readerMgr.CloseContext();
             }
