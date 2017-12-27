@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{C6948AAF-D69A-4567-A977-2EF70AFF2CAC}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>HelloEIDA</RootNamespace>
-    <AssemblyName>HelloEIDA</AssemblyName>
+    <RootNamespace>EIDAReaderWinForms</RootNamespace>
+    <AssemblyName>EIDAReaderWinForms</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
