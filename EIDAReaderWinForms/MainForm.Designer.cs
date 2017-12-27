@@ -1,4 +1,4 @@
-﻿namespace HelloEIDA
+﻿namespace EIDAReaderWinForms
 {
     partial class MainForm
     {

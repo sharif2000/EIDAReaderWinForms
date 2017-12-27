@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HelloEIDA.Properties
+namespace EIDAReaderWinForms.Properties
 {
 
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace HelloEIDA
+namespace EIDAReaderWinForms
 {
     static class Program
     {
