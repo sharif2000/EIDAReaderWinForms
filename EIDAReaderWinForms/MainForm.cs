@@ -94,8 +94,15 @@ namespace EIDAReaderWinForms
                         added in V2 cards such as address, passport information, Company name, Qualification, Field of Study, etc...  */
 
                 CardHolderPublicDataEx publicDataEx = publicDataFacade.ReadPublicDataEx(true, true, true, true, false, true, true, true);
-                byte[] fullNameBinEx = publicDataEx.FullName;
-                String fullNameEx = Utils.ByteArrayToUTF8String(fullNameBin);
+
+                byte[] ArabicFullNameBinEx = publicDataEx.ArabicFullName;
+                String ArabicFullName = Utils.ByteArrayToUTF8String(ArabicFullNameBinEx);
+                txtArabicFullName.Text = ArabicFullName;
+
+                byte[] FullNameBinEx = publicDataEx.FullName;
+                String FullName = Utils.ByteArrayToUTF8String(FullNameBinEx);
+                txtFullName.Text = FullName;
+
                 byte[] sexBinEx = publicDataEx.Sex;
                 String sexEx = Utils.ByteArrayToUTF8String(sexBin);
                 byte[] issueDateBinEx = publicDataEx.IssueDate;
@@ -118,17 +125,6 @@ namespace EIDAReaderWinForms
                 //String firstNameChild1 = Utils.ByteArrayToUTF8String(firstNameBinChild1);
 
                 #endregion Step 10 "Family Book Data" (Skipped because it needs a special config in sm.cfg)
-
-                #region Step 11 "Verifying Card Genuine in local mode" (Skipped because it needs a special config in sm.cfg)
-
-                /* Step 11 : Verifying Card Genuine in local mode
-                In order to invoke isCardGenuine() function in the local mode, the sm.cfg configuration file
-                must be configured as specified in Appendix A, according to the availability of
-                secure messaging modules (HSM, SAM or multiple SAM, or Software SAM). */
-
-                bool isGenuine = publicDataFacade.IsCardGenuine();
-
-                #endregion Step 11 "Verifying Card Genuine in local mode" (Skipped because it needs a special config in sm.cfg)
 
                 readerMgr.CloseContext();
             }
