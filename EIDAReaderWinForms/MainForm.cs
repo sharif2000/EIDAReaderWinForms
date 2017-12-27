@@ -23,6 +23,31 @@ namespace EIDAReaderWinForms
 
         private void Form1_Load(object sender, System.EventArgs e)
         {
+          
+        }
+
+        #region Helper (BlackBoxed) functions
+
+        private PCSCReader selectReader()
+        {
+            readerMgr.DiscoverReaders();
+            PCSCReader[] readers = readerMgr.Readers;
+            return readers[0];
+        }
+
+        #endregion Helper (BlackBoxed) functions
+
+        #region Constructor
+
+        public MainForm()
+        {
+            InitializeComponent();
+        }
+
+        #endregion Constructor
+
+        private void btnReadCard_Click(object sender, EventArgs e)
+        {
             try
             {
                 #region Steps 1-5
@@ -133,25 +158,5 @@ namespace EIDAReaderWinForms
                 MessageBox.Show(ex.Message);
             }
         }
-
-        #region Helper (BlackBoxed) functions
-
-        private PCSCReader selectReader()
-        {
-            readerMgr.DiscoverReaders();
-            PCSCReader[] readers = readerMgr.Readers;
-            return readers[0];
-        }
-
-        #endregion Helper (BlackBoxed) functions
-
-        #region Constructor
-
-        public MainForm()
-        {
-            InitializeComponent();
-        }
-
-        #endregion Constructor
     }
 }
