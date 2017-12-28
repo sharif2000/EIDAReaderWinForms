@@ -18,18 +18,21 @@ namespace EIDAReaderWinForms
         {
             try
             {
-                CardHolderPublicDataEx publicDataEx = BLL.CardReader.Read_V2_Card();
-
+                CardHolderPublicDataEx publicDataEx = new BLL.CardReader().Read_V2_Card();
                 txtArabicFullName.Text = Utils.ByteArrayToUTF8String(publicDataEx.ArabicFullName);
                 txtFullName.Text = Utils.ByteArrayToUTF8String(publicDataEx.FullName);
                 byte[] issueDateBinEx = publicDataEx.IssueDate;
                 String issueDateEx = Utils.ByteArrayToStringDate(issueDateBinEx);
                 byte[] photographyEx = publicDataEx.Photography;
                 Image PersonalPhoto = (Image)new ImageConverter().ConvertFrom(photographyEx);
+
+                txtStatus.Text = "تم قراءة بيانات البطاقة بنجاح";
+                txtStatus.BackColor = Color.LightGreen;
             }
             catch (MiddlewareException ex)
             {
-                MessageBox.Show(ex.Message);
+                txtStatus.Text = ex.Message;
+                txtStatus.BackColor = Color.LightCoral;
             }
         }
     }
