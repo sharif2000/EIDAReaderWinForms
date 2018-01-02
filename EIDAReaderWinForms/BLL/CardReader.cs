@@ -13,10 +13,9 @@ namespace EIDAReaderWinForms.BLL
         CardInfo cardInfo;
         int cardVersion;
         PublicDataFacade publicDataFacade;
-        CardHolderPublicDataEx publicDataEx;
-        CardHolderPublicData publicData_ForV1Cards;
+        CardHolderPublicData result;
 
-        public CardHolderPublicDataEx Read_V2_Card()
+        public CardHolderPublicData ReadCard()
         {
             readerMgr = new ReaderManagement();
             readerMgr.EstablishContext();
@@ -45,16 +44,16 @@ namespace EIDAReaderWinForms.BLL
             {
                 // Reading the "Card Holder Public Data" is extended to support reading additional public data fields
                 // added in V2 cards such as address, passport information, Company name, Qualification, Field of Study, etc...
-                publicDataEx = publicDataFacade.ReadPublicDataEx(true, true, true, true, false, true, true, true);
+                result = publicDataFacade.ReadPublicDataEx(true, true, true, true, false, true, true, true);
             }
             else
             {
                 // Reading the "Card Holder Public Data", using the "CardHolderPublicData" Class
-                publicData_ForV1Cards = publicDataFacade.ReadPublicData(true, true, true, true, false);
+                result = publicDataFacade.ReadPublicData(true, true, true, true, false);
             }
 
             readerMgr.CloseContext();
-            return publicDataEx;
+            return result;
         }
     }
 }

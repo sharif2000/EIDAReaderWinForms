@@ -18,13 +18,31 @@ namespace EIDAReaderWinForms
         {
             try
             {
-                CardHolderPublicDataEx publicDataEx = new BLL.CardReader().Read_V2_Card();
-                txtArabicFullName.Text = Utils.ByteArrayToUTF8String(publicDataEx.ArabicFullName);
-                txtFullName.Text = Utils.ByteArrayToUTF8String(publicDataEx.FullName);
-                byte[] issueDateBinEx = publicDataEx.IssueDate;
-                String issueDateEx = Utils.ByteArrayToStringDate(issueDateBinEx);
-                byte[] photographyEx = publicDataEx.Photography;
-                Image PersonalPhoto = (Image)new ImageConverter().ConvertFrom(photographyEx);
+                CardHolderPublicData publicData = new BLL.CardReader().ReadCard();
+                CardHolderPublicDataEx publicDataEx;
+
+                if (publicData.GetType() == typeof(CardHolderPublicDataEx))
+                {
+                    publicDataEx = (CardHolderPublicDataEx)publicData;
+
+                    txtArabicFullName.Text = Utils.ByteArrayToUTF8String(publicDataEx.ArabicFullName);
+                    txtFullName.Text = Utils.ByteArrayToUTF8String(publicDataEx.FullName);
+                    txtIDNumber.Text = Utils.ByteArrayToUTF8String(publicDataEx.IdNumber);
+                    picPhotography.Image = (Image)new ImageConverter().ConvertFrom(publicDataEx.Photography);
+                    txtNationalityAr.Text = Utils.ByteArrayToUTF8String(publicDataEx.ArabicNationality);
+                    txtIssueDate.Text = Utils.ByteArrayToStringDate(publicDataEx.IssueDate);
+                    txtExpiryDate.Text = Utils.ByteArrayToStringDate(publicDataEx.ExpiryDate);
+                    txtDateOfBirth.Text= Utils.ByteArrayToStringDate(publicDataEx.DateOfBirth);
+                    if (Utils.ByteArrayToUTF8String(publicDataEx.Sex).ToLower()=="m")
+                    {
+                        txtSex.Text = "ذكر";
+                    }
+                    else
+                    {
+                        txtSex.Text = "انثى";
+                    }
+                    
+                }
 
                 txtStatus.Text = "تم قراءة بيانات البطاقة بنجاح";
                 txtStatus.BackColor = Color.LightGreen;
