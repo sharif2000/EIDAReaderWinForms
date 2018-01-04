@@ -27,21 +27,29 @@ namespace EIDAReaderWinForms
 
                     txtArabicFullName.Text = Utils.ByteArrayToUTF8String(publicDataEx.ArabicFullName);
                     txtFullName.Text = Utils.ByteArrayToUTF8String(publicDataEx.FullName);
+                    txtMotherFullNameArabic.Text= Utils.ByteArrayToUTF8String(publicDataEx.MotherFullNameArabic);
+
+
                     txtIDNumber.Text = Utils.ByteArrayToUTF8String(publicDataEx.IdNumber);
                     picPhotography.Image = (Image)new ImageConverter().ConvertFrom(publicDataEx.Photography);
                     txtNationalityAr.Text = Utils.ByteArrayToUTF8String(publicDataEx.ArabicNationality);
                     txtIssueDate.Text = Utils.ByteArrayToStringDate(publicDataEx.IssueDate);
                     txtExpiryDate.Text = Utils.ByteArrayToStringDate(publicDataEx.ExpiryDate);
-                    txtDateOfBirth.Text= Utils.ByteArrayToStringDate(publicDataEx.DateOfBirth);
-                    if (Utils.ByteArrayToUTF8String(publicDataEx.Sex).ToLower()=="m")
-                    {
-                        txtSex.Text = "ذكر";
-                    }
-                    else
-                    {
-                        txtSex.Text = "انثى";
-                    }
-                    
+                    txtDateOfBirth.Text = Utils.ByteArrayToStringDate(publicDataEx.DateOfBirth);
+                    txtSex.Text = PublicDataUtils.GetSex(Utils.ByteArrayToUTF8String(publicDataEx.Sex));
+                    txtMaritalStatus.Text = PublicDataUtils.GetMaritalStatus(Utils.ByteArrayToHex(publicDataEx.MaritalStatus, ""));
+                    txtQualificationLevelDescriptionArabic.Text = Utils.ByteArrayToUTF8String(publicDataEx.QualificationLevelDescriptionArabic);
+                    txtDegreeDescriptionArabic.Text = Utils.ByteArrayToUTF8String(publicDataEx.DegreeDescriptionArabic);
+
+                    txtMobilePhoneNumber.Text = Utils.ByteArrayToUTF8String(publicDataEx.HomeAddress.MobilePhoneNumber);
+                    txtResidentPhoneNumber.Text = Utils.ByteArrayToUTF8String(publicDataEx.HomeAddress.ResidentPhoneNumber);
+
+                    txtPOBox.Text = Utils.ByteArrayToUTF8String(publicDataEx.HomeAddress.POBox);
+
+                    txtEmail.Text = Utils.ByteArrayToUTF8String(publicDataEx.HomeAddress.Email);
+
+                    txtLandPhoneNo.Text = Utils.ByteArrayToUTF8String(publicDataEx.WorkAddress.LandPhoneNo);
+
                 }
 
                 txtStatus.Text = "تم قراءة بيانات البطاقة بنجاح";
