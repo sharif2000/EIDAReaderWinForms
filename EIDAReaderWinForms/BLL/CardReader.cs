@@ -22,6 +22,15 @@ namespace EIDAReaderWinForms.BLL
             readerMgr.DiscoverReaders();
             selectedReader = readerMgr.Readers[0];
 
+            //if (readerMgr.Readers.Length>0)
+            //{
+            //    selectedReader = readerMgr.Readers[0];
+            //}
+            //else
+            //{
+            //    throw new System.Exception("خطأ : لا يوجد جهاز قارئ للبطاقة");
+            //}
+
             IsConnected = selectedReader.IsConnected();
             isUAE = ATRSetting.Is_UAE_Card(selectedReader.ATR);
             publicDataFacade = selectedReader.GetPublicDataFacade();
