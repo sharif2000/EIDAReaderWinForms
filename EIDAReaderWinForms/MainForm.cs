@@ -1,8 +1,8 @@
-﻿using EmiratesId.AE.PublicData;
+﻿using EIDAReaderWinForms.EL;
+using EmiratesId.AE.PublicData;
 using EmiratesId.AE.Utils;
 using Microsoft.SharePoint.Client;
 using System;
-using System.Configuration;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -10,28 +10,16 @@ namespace EIDAReaderWinForms
 {
     public partial class MainForm : System.Windows.Forms.Form
     {
-        public string SP_URL;
-        public string ListName;
-        public string DispForm;
-        public CardHolderPublicDataEx publicDataEx;
-
         public MainForm()
         {
             InitializeComponent();
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            SP_URL = ConfigurationManager.AppSettings["SP_URL"];
-            ListName = ConfigurationManager.AppSettings["ListName"];
-            DispForm = ConfigurationManager.AppSettings["DispForm"];
         }
 
         private void btnReadCard_Click(object sender, EventArgs e)
         {
             try
             {
-                publicDataEx = new BLL.CardReader().ReadCard();
+                CardHolderPublicDataEx publicDataEx = new BLL.CardReader().ReadCard();
 
                 txtArabicFullName.Text = PublicDataUtils.RemoveCommas(Utils.ByteArrayToUTF8String(publicDataEx.ArabicFullName));
                 txtFullName.Text = PublicDataUtils.RemoveCommas(Utils.ByteArrayToUTF8String(publicDataEx.FullName));
@@ -91,10 +79,10 @@ namespace EIDAReaderWinForms
         private void btnSaveToSP_Click(object sender, EventArgs e)
         {
             // Starting with ClientContext, the constructor requires a URL to the server running SharePoint.
-            ClientContext context = new ClientContext(SP_URL);
+            ClientContext context = new ClientContext(ConfigFileData.SP_URL);
 
             // Assume that the web has a list named "Announcements".
-            List TestForClientsList = context.Web.Lists.GetByTitle(ListName);
+            List TestForClientsList = context.Web.Lists.GetByTitle(ConfigFileData.ListName);
 
             // We are just creating a regular list item, so we don't need to
             // set any properties. If we wanted to create a new folder, for
@@ -108,7 +96,7 @@ namespace EIDAReaderWinForms
             context.Load(newItem);//Load the new item
             context.ExecuteQuery();
 
-            txtStatus.Text = DispForm + newItem.Id.ToString();
+            txtStatus.Text = ConfigFileData.DispForm + newItem.Id.ToString();
         }
 
         private void txtStatus_LinkClicked(object sender, LinkClickedEventArgs e)

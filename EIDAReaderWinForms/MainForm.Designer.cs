@@ -845,7 +845,6 @@
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "قارئ بطاقة الهوية";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picPhotography)).EndInit();
             this.tblContainer.ResumeLayout(false);
             this.tblContainer.PerformLayout();
