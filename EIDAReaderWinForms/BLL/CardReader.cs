@@ -6,14 +6,14 @@ namespace EIDAReaderWinForms.BLL
 {
     public class CardReader
     {
-        ReaderManagement readerMgr;
-        PCSCReader selectedReader;
-        bool IsConnected;
-        bool isUAE;
-        CardInfo cardInfo;
-        int cardVersion;
-        PublicDataFacade publicDataFacade;
-        CardHolderPublicDataEx result;
+        private ReaderManagement readerMgr;
+        private PCSCReader selectedReader;
+        private bool IsConnected;
+        private bool isUAE;
+        private CardInfo cardInfo;
+        private int cardVersion;
+        private PublicDataFacade publicDataFacade;
+        private CardHolderPublicDataEx result;
 
         public CardHolderPublicDataEx ReadCard()
         {
@@ -21,16 +21,6 @@ namespace EIDAReaderWinForms.BLL
             readerMgr.EstablishContext();
             readerMgr.DiscoverReaders();
             selectedReader = readerMgr.Readers[0];
-
-            //if (readerMgr.Readers.Length>0)
-            //{
-            //    selectedReader = readerMgr.Readers[0];
-            //}
-            //else
-            //{
-            //    throw new System.Exception("خطأ : لا يوجد جهاز قارئ للبطاقة");
-            //}
-
             IsConnected = selectedReader.IsConnected();
             isUAE = ATRSetting.Is_UAE_Card(selectedReader.ATR);
             publicDataFacade = selectedReader.GetPublicDataFacade();
@@ -48,7 +38,13 @@ namespace EIDAReaderWinForms.BLL
 
             cardInfo = selectedReader.GetCardInfo();
             cardVersion = cardInfo.GetCardVersion();
-            result = publicDataFacade.ReadPublicDataEx(true, true, true, true, false, true, true, true);
+
+            if (cardVersion < 2)
+            {
+                throw new System.Exception("خطأ : البطاقة المستخدمة ذات إصدار قديم وغير صالحة للقراءة. برجاء تحديث البطاقة");
+            }
+
+            result = publicDataFacade.ReadPublicDataEx(true, true, true, true, false, true, false, true);
 
             readerMgr.CloseContext();
             return result;

@@ -10,10 +10,10 @@ namespace EIDAReaderWinForms
 {
     public partial class MainForm : System.Windows.Forms.Form
     {
-        string SP_URL;
-        string ListName;
-        string DispForm;
-        CardHolderPublicDataEx publicDataEx;
+        public string SP_URL;
+        public string ListName;
+        public string DispForm;
+        public CardHolderPublicDataEx publicDataEx;
 
         public MainForm()
         {
@@ -33,12 +33,8 @@ namespace EIDAReaderWinForms
             {
                 publicDataEx = new BLL.CardReader().ReadCard();
 
-                //                if (publicData.GetType() == typeof(CardHolderPublicDataEx))
-                //                {
-                //                    publicDataEx = (CardHolderPublicDataEx)publicData;
-
-                txtArabicFullName.Text = Utils.ByteArrayToUTF8String(publicDataEx.ArabicFullName);
-                txtFullName.Text = Utils.ByteArrayToUTF8String(publicDataEx.FullName);
+                txtArabicFullName.Text = PublicDataUtils.RemoveCommas(Utils.ByteArrayToUTF8String(publicDataEx.ArabicFullName));
+                txtFullName.Text = PublicDataUtils.RemoveCommas(Utils.ByteArrayToUTF8String(publicDataEx.FullName));
                 txtMotherFullNameArabic.Text = Utils.ByteArrayToUTF8String(publicDataEx.MotherFullNameArabic);
                 txtIDNumber.Text = Utils.ByteArrayToUTF8String(publicDataEx.IdNumber);
                 picPhotography.Image = (Image)new ImageConverter().ConvertFrom(publicDataEx.Photography);
@@ -46,6 +42,7 @@ namespace EIDAReaderWinForms
                 txtIssueDate.Text = Utils.ByteArrayToStringDate(publicDataEx.IssueDate);
                 txtExpiryDate.Text = Utils.ByteArrayToStringDate(publicDataEx.ExpiryDate);
                 txtDateOfBirth.Text = Utils.ByteArrayToStringDate(publicDataEx.DateOfBirth);
+                txtPlaceOfBirthArabic.Text = Utils.ByteArrayToUTF8String(publicDataEx.PlaceOfBirthArabic);
                 txtSex.Text = PublicDataUtils.GetSex(Utils.ByteArrayToUTF8String(publicDataEx.Sex));
                 txtMaritalStatus.Text = PublicDataUtils.GetMaritalStatus(Utils.ByteArrayToHex(publicDataEx.MaritalStatus, ""));
                 txtQualificationLevelDescriptionArabic.Text = Utils.ByteArrayToUTF8String(publicDataEx.QualificationLevelDescriptionArabic);
@@ -63,7 +60,9 @@ namespace EIDAReaderWinForms
                 txtCompanyNameArabic.Text = Utils.ByteArrayToUTF8String(publicDataEx.WorkAddress.CompanyNameArabic);
                 txtEmirateDescriptionArabic.Text = Utils.ByteArrayToUTF8String(publicDataEx.HomeAddress.EmirateDescriptionArabic);
                 txtCityDescriptionArabic.Text = Utils.ByteArrayToUTF8String(publicDataEx.HomeAddress.CityDescriptionArabic);
-                //          }
+                txtResidencyType.Text = PublicDataUtils.GetResidencyType(Utils.ByteArrayToHex(publicDataEx.ResidencyType, ""));
+                txtResidencyNumber.Text = Utils.ByteArrayToUTF8String(publicDataEx.ResidencyNumber);
+                txtResidencyExpiryDate.Text = Utils.ByteArrayToStringDate(publicDataEx.ResidencyExpiryDate);
 
                 txtStatus.Text = "تم قراءة بيانات البطاقة بنجاح";
                 txtStatus.BackColor = Color.LightGreen;

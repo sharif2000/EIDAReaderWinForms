@@ -54,28 +54,14 @@
             this.txtFullName = new System.Windows.Forms.TextBox();
             this.lblFullName = new System.Windows.Forms.Label();
             this.tblContainer = new System.Windows.Forms.TableLayoutPanel();
-            this.lblPassportCountryDescriptionArabic = new System.Windows.Forms.Label();
             this.lblMotherFullNameArabic = new System.Windows.Forms.Label();
             this.txtMotherFullNameArabic = new System.Windows.Forms.TextBox();
-            this.lblMobilePhoneNumber = new System.Windows.Forms.Label();
-            this.lblResidentPhoneNumber = new System.Windows.Forms.Label();
-            this.lblLandPhoneNo = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblPOBox = new System.Windows.Forms.Label();
             this.lblDegreeDescriptionArabic = new System.Windows.Forms.Label();
             this.txtDegreeDescriptionArabic = new System.Windows.Forms.TextBox();
-            this.txtMobilePhoneNumber = new System.Windows.Forms.TextBox();
-            this.txtResidentPhoneNumber = new System.Windows.Forms.TextBox();
-            this.txtLandPhoneNo = new System.Windows.Forms.TextBox();
             this.txtPOBox = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.lblPassportExpiryDate = new System.Windows.Forms.Label();
-            this.lblPassportIssueDate = new System.Windows.Forms.Label();
-            this.lblPassportNumber = new System.Windows.Forms.Label();
-            this.txtPassportNumber = new System.Windows.Forms.TextBox();
-            this.txtPassportIssueDate = new System.Windows.Forms.TextBox();
-            this.txtPassportExpiryDate = new System.Windows.Forms.TextBox();
-            this.txtPassportCountryDescriptionArabic = new System.Windows.Forms.TextBox();
             this.lblCompanyNameArabic = new System.Windows.Forms.Label();
             this.lblOccupation = new System.Windows.Forms.Label();
             this.txtOccupation = new System.Windows.Forms.TextBox();
@@ -85,6 +71,28 @@
             this.txtEmirateDescriptionArabic = new System.Windows.Forms.TextBox();
             this.txtCityDescriptionArabic = new System.Windows.Forms.TextBox();
             this.txtStatus = new System.Windows.Forms.RichTextBox();
+            this.lblPassportCountryDescriptionArabic = new System.Windows.Forms.Label();
+            this.lblPassportExpiryDate = new System.Windows.Forms.Label();
+            this.lblPassportIssueDate = new System.Windows.Forms.Label();
+            this.lblPassportNumber = new System.Windows.Forms.Label();
+            this.lblLandPhoneNo = new System.Windows.Forms.Label();
+            this.lblResidentPhoneNumber = new System.Windows.Forms.Label();
+            this.lblMobilePhoneNumber = new System.Windows.Forms.Label();
+            this.txtPassportCountryDescriptionArabic = new System.Windows.Forms.TextBox();
+            this.txtPassportExpiryDate = new System.Windows.Forms.TextBox();
+            this.txtPassportIssueDate = new System.Windows.Forms.TextBox();
+            this.txtPassportNumber = new System.Windows.Forms.TextBox();
+            this.txtLandPhoneNo = new System.Windows.Forms.TextBox();
+            this.txtResidentPhoneNumber = new System.Windows.Forms.TextBox();
+            this.txtMobilePhoneNumber = new System.Windows.Forms.TextBox();
+            this.lblPlaceOfBirthArabic = new System.Windows.Forms.Label();
+            this.txtPlaceOfBirthArabic = new System.Windows.Forms.TextBox();
+            this.txtResidencyType = new System.Windows.Forms.TextBox();
+            this.lblResidencyType = new System.Windows.Forms.Label();
+            this.txtResidencyNumber = new System.Windows.Forms.TextBox();
+            this.lblResidencyNumber = new System.Windows.Forms.Label();
+            this.txtResidencyExpiryDate = new System.Windows.Forms.TextBox();
+            this.lblResidencyExpiryDate = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picPhotography)).BeginInit();
             this.tblContainer.SuspendLayout();
             this.SuspendLayout();
@@ -92,7 +100,7 @@
             // txtIDNumber
             // 
             this.txtIDNumber.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtIDNumber.Location = new System.Drawing.Point(421, 354);
+            this.txtIDNumber.Location = new System.Drawing.Point(421, 381);
             this.txtIDNumber.Name = "txtIDNumber";
             this.txtIDNumber.ReadOnly = true;
             this.txtIDNumber.Size = new System.Drawing.Size(250, 20);
@@ -102,7 +110,7 @@
             // txtSex
             // 
             this.txtSex.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtSex.Location = new System.Drawing.Point(421, 246);
+            this.txtSex.Location = new System.Drawing.Point(421, 273);
             this.txtSex.Name = "txtSex";
             this.txtSex.ReadOnly = true;
             this.txtSex.Size = new System.Drawing.Size(250, 20);
@@ -113,7 +121,7 @@
             // 
             this.lblSex.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblSex.AutoSize = true;
-            this.lblSex.Location = new System.Drawing.Point(760, 250);
+            this.lblSex.Location = new System.Drawing.Point(760, 277);
             this.lblSex.Name = "lblSex";
             this.lblSex.Size = new System.Drawing.Size(29, 13);
             this.lblSex.TabIndex = 15;
@@ -123,7 +131,7 @@
             // 
             this.lblMaritalStatus.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblMaritalStatus.AutoSize = true;
-            this.lblMaritalStatus.Location = new System.Drawing.Point(706, 196);
+            this.lblMaritalStatus.Location = new System.Drawing.Point(706, 223);
             this.lblMaritalStatus.Name = "lblMaritalStatus";
             this.lblMaritalStatus.Size = new System.Drawing.Size(83, 13);
             this.lblMaritalStatus.TabIndex = 16;
@@ -132,7 +140,7 @@
             // txtMaritalStatus
             // 
             this.txtMaritalStatus.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtMaritalStatus.Location = new System.Drawing.Point(421, 192);
+            this.txtMaritalStatus.Location = new System.Drawing.Point(421, 219);
             this.txtMaritalStatus.Name = "txtMaritalStatus";
             this.txtMaritalStatus.ReadOnly = true;
             this.txtMaritalStatus.Size = new System.Drawing.Size(250, 20);
@@ -183,7 +191,7 @@
             // 
             this.lblIDNumber.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblIDNumber.AutoSize = true;
-            this.lblIDNumber.Location = new System.Drawing.Point(736, 358);
+            this.lblIDNumber.Location = new System.Drawing.Point(736, 385);
             this.lblIDNumber.Name = "lblIDNumber";
             this.lblIDNumber.Size = new System.Drawing.Size(53, 13);
             this.lblIDNumber.TabIndex = 8;
@@ -192,7 +200,7 @@
             // txtExpiryDate
             // 
             this.txtExpiryDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtExpiryDate.Location = new System.Drawing.Point(421, 408);
+            this.txtExpiryDate.Location = new System.Drawing.Point(421, 435);
             this.txtExpiryDate.Name = "txtExpiryDate";
             this.txtExpiryDate.ReadOnly = true;
             this.txtExpiryDate.Size = new System.Drawing.Size(250, 20);
@@ -202,7 +210,7 @@
             // txtIssueDate
             // 
             this.txtIssueDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtIssueDate.Location = new System.Drawing.Point(421, 381);
+            this.txtIssueDate.Location = new System.Drawing.Point(421, 408);
             this.txtIssueDate.Name = "txtIssueDate";
             this.txtIssueDate.ReadOnly = true;
             this.txtIssueDate.Size = new System.Drawing.Size(250, 20);
@@ -212,7 +220,7 @@
             // txtNationalityAr
             // 
             this.txtNationalityAr.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtNationalityAr.Location = new System.Drawing.Point(421, 219);
+            this.txtNationalityAr.Location = new System.Drawing.Point(421, 246);
             this.txtNationalityAr.Name = "txtNationalityAr";
             this.txtNationalityAr.ReadOnly = true;
             this.txtNationalityAr.Size = new System.Drawing.Size(250, 20);
@@ -223,7 +231,7 @@
             // 
             this.lblNationality.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblNationality.AutoSize = true;
-            this.lblNationality.Location = new System.Drawing.Point(743, 223);
+            this.lblNationality.Location = new System.Drawing.Point(743, 250);
             this.lblNationality.Name = "lblNationality";
             this.lblNationality.Size = new System.Drawing.Size(46, 13);
             this.lblNationality.TabIndex = 25;
@@ -243,7 +251,7 @@
             // 
             this.lblExpiryDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblExpiryDate.AutoSize = true;
-            this.lblExpiryDate.Location = new System.Drawing.Point(692, 412);
+            this.lblExpiryDate.Location = new System.Drawing.Point(692, 439);
             this.lblExpiryDate.Name = "lblExpiryDate";
             this.lblExpiryDate.Size = new System.Drawing.Size(97, 13);
             this.lblExpiryDate.TabIndex = 11;
@@ -253,7 +261,7 @@
             // 
             this.lblIssueDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblIssueDate.AutoSize = true;
-            this.lblIssueDate.Location = new System.Drawing.Point(726, 385);
+            this.lblIssueDate.Location = new System.Drawing.Point(726, 412);
             this.lblIssueDate.Name = "lblIssueDate";
             this.lblIssueDate.Size = new System.Drawing.Size(63, 13);
             this.lblIssueDate.TabIndex = 12;
@@ -340,7 +348,6 @@
             this.tblContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tblContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tblContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
-            this.tblContainer.Controls.Add(this.lblPassportCountryDescriptionArabic, 0, 19);
             this.tblContainer.Controls.Add(this.lblFullName, 0, 4);
             this.tblContainer.Controls.Add(this.txtFullName, 1, 4);
             this.tblContainer.Controls.Add(this.lblArabicFullName, 0, 3);
@@ -353,39 +360,14 @@
             this.tblContainer.Controls.Add(this.lblDateOfBirth, 0, 6);
             this.tblContainer.Controls.Add(this.lblMotherFullNameArabic, 0, 5);
             this.tblContainer.Controls.Add(this.txtMotherFullNameArabic, 1, 5);
-            this.tblContainer.Controls.Add(this.lblMaritalStatus, 0, 7);
-            this.tblContainer.Controls.Add(this.txtMaritalStatus, 1, 7);
-            this.tblContainer.Controls.Add(this.lblNationality, 0, 8);
-            this.tblContainer.Controls.Add(this.txtNationalityAr, 1, 8);
-            this.tblContainer.Controls.Add(this.lblSex, 0, 9);
-            this.tblContainer.Controls.Add(this.txtSex, 1, 9);
             this.tblContainer.Controls.Add(this.lblQualificationLevelDescriptionArabic, 2, 9);
             this.tblContainer.Controls.Add(this.txtQualificationLevelDescriptionArabic, 3, 9);
-            this.tblContainer.Controls.Add(this.lblExpiryDate, 0, 15);
-            this.tblContainer.Controls.Add(this.txtExpiryDate, 1, 15);
-            this.tblContainer.Controls.Add(this.lblIssueDate, 0, 14);
-            this.tblContainer.Controls.Add(this.txtIssueDate, 1, 14);
-            this.tblContainer.Controls.Add(this.lblIDNumber, 0, 13);
-            this.tblContainer.Controls.Add(this.txtIDNumber, 1, 13);
-            this.tblContainer.Controls.Add(this.lblMobilePhoneNumber, 0, 10);
-            this.tblContainer.Controls.Add(this.lblResidentPhoneNumber, 0, 11);
-            this.tblContainer.Controls.Add(this.lblLandPhoneNo, 0, 12);
             this.tblContainer.Controls.Add(this.lblEmail, 2, 12);
             this.tblContainer.Controls.Add(this.lblPOBox, 2, 11);
             this.tblContainer.Controls.Add(this.lblDegreeDescriptionArabic, 2, 10);
             this.tblContainer.Controls.Add(this.txtDegreeDescriptionArabic, 3, 10);
-            this.tblContainer.Controls.Add(this.txtMobilePhoneNumber, 1, 10);
-            this.tblContainer.Controls.Add(this.txtResidentPhoneNumber, 1, 11);
-            this.tblContainer.Controls.Add(this.txtLandPhoneNo, 1, 12);
             this.tblContainer.Controls.Add(this.txtPOBox, 3, 11);
             this.tblContainer.Controls.Add(this.txtEmail, 3, 12);
-            this.tblContainer.Controls.Add(this.lblPassportExpiryDate, 0, 18);
-            this.tblContainer.Controls.Add(this.lblPassportIssueDate, 0, 17);
-            this.tblContainer.Controls.Add(this.lblPassportNumber, 0, 16);
-            this.tblContainer.Controls.Add(this.txtPassportNumber, 1, 16);
-            this.tblContainer.Controls.Add(this.txtPassportIssueDate, 1, 17);
-            this.tblContainer.Controls.Add(this.txtPassportExpiryDate, 1, 18);
-            this.tblContainer.Controls.Add(this.txtPassportCountryDescriptionArabic, 1, 19);
             this.tblContainer.Controls.Add(this.lblCompanyNameArabic, 2, 14);
             this.tblContainer.Controls.Add(this.lblOccupation, 2, 13);
             this.tblContainer.Controls.Add(this.txtOccupation, 3, 13);
@@ -395,6 +377,40 @@
             this.tblContainer.Controls.Add(this.txtEmirateDescriptionArabic, 3, 15);
             this.tblContainer.Controls.Add(this.txtCityDescriptionArabic, 3, 16);
             this.tblContainer.Controls.Add(this.txtStatus, 2, 1);
+            this.tblContainer.Controls.Add(this.lblPassportCountryDescriptionArabic, 0, 20);
+            this.tblContainer.Controls.Add(this.lblPassportExpiryDate, 0, 19);
+            this.tblContainer.Controls.Add(this.lblPassportIssueDate, 0, 18);
+            this.tblContainer.Controls.Add(this.lblPassportNumber, 0, 17);
+            this.tblContainer.Controls.Add(this.lblExpiryDate, 0, 16);
+            this.tblContainer.Controls.Add(this.lblIssueDate, 0, 15);
+            this.tblContainer.Controls.Add(this.lblIDNumber, 0, 14);
+            this.tblContainer.Controls.Add(this.lblLandPhoneNo, 0, 13);
+            this.tblContainer.Controls.Add(this.lblResidentPhoneNumber, 0, 12);
+            this.tblContainer.Controls.Add(this.lblMobilePhoneNumber, 0, 11);
+            this.tblContainer.Controls.Add(this.lblSex, 0, 10);
+            this.tblContainer.Controls.Add(this.lblNationality, 0, 9);
+            this.tblContainer.Controls.Add(this.lblMaritalStatus, 0, 8);
+            this.tblContainer.Controls.Add(this.txtPassportCountryDescriptionArabic, 1, 20);
+            this.tblContainer.Controls.Add(this.txtPassportExpiryDate, 1, 19);
+            this.tblContainer.Controls.Add(this.txtPassportIssueDate, 1, 18);
+            this.tblContainer.Controls.Add(this.txtPassportNumber, 1, 17);
+            this.tblContainer.Controls.Add(this.txtExpiryDate, 1, 16);
+            this.tblContainer.Controls.Add(this.txtIssueDate, 1, 15);
+            this.tblContainer.Controls.Add(this.txtIDNumber, 1, 14);
+            this.tblContainer.Controls.Add(this.txtLandPhoneNo, 1, 13);
+            this.tblContainer.Controls.Add(this.txtResidentPhoneNumber, 1, 12);
+            this.tblContainer.Controls.Add(this.txtMobilePhoneNumber, 1, 11);
+            this.tblContainer.Controls.Add(this.txtSex, 1, 10);
+            this.tblContainer.Controls.Add(this.txtNationalityAr, 1, 9);
+            this.tblContainer.Controls.Add(this.txtMaritalStatus, 1, 8);
+            this.tblContainer.Controls.Add(this.lblPlaceOfBirthArabic, 0, 7);
+            this.tblContainer.Controls.Add(this.txtPlaceOfBirthArabic, 1, 7);
+            this.tblContainer.Controls.Add(this.txtResidencyType, 3, 17);
+            this.tblContainer.Controls.Add(this.lblResidencyType, 2, 17);
+            this.tblContainer.Controls.Add(this.txtResidencyNumber, 3, 18);
+            this.tblContainer.Controls.Add(this.lblResidencyNumber, 2, 18);
+            this.tblContainer.Controls.Add(this.txtResidencyExpiryDate, 3, 19);
+            this.tblContainer.Controls.Add(this.lblResidencyExpiryDate, 2, 19);
             this.tblContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblContainer.Location = new System.Drawing.Point(0, 0);
             this.tblContainer.Name = "tblContainer";
@@ -423,16 +439,6 @@
             this.tblContainer.Size = new System.Drawing.Size(792, 573);
             this.tblContainer.TabIndex = 0;
             // 
-            // lblPassportCountryDescriptionArabic
-            // 
-            this.lblPassportCountryDescriptionArabic.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblPassportCountryDescriptionArabic.AutoSize = true;
-            this.lblPassportCountryDescriptionArabic.Location = new System.Drawing.Point(725, 520);
-            this.lblPassportCountryDescriptionArabic.Name = "lblPassportCountryDescriptionArabic";
-            this.lblPassportCountryDescriptionArabic.Size = new System.Drawing.Size(64, 13);
-            this.lblPassportCountryDescriptionArabic.TabIndex = 50;
-            this.lblPassportCountryDescriptionArabic.Text = "مكان الإصدار";
-            // 
             // lblMotherFullNameArabic
             // 
             this.lblMotherFullNameArabic.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -452,36 +458,6 @@
             this.txtMotherFullNameArabic.Size = new System.Drawing.Size(250, 20);
             this.txtMotherFullNameArabic.TabIndex = 35;
             this.txtMotherFullNameArabic.TabStop = false;
-            // 
-            // lblMobilePhoneNumber
-            // 
-            this.lblMobilePhoneNumber.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblMobilePhoneNumber.AutoSize = true;
-            this.lblMobilePhoneNumber.Location = new System.Drawing.Point(734, 277);
-            this.lblMobilePhoneNumber.Name = "lblMobilePhoneNumber";
-            this.lblMobilePhoneNumber.Size = new System.Drawing.Size(55, 13);
-            this.lblMobilePhoneNumber.TabIndex = 36;
-            this.lblMobilePhoneNumber.Text = "رقم الجوال";
-            // 
-            // lblResidentPhoneNumber
-            // 
-            this.lblResidentPhoneNumber.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblResidentPhoneNumber.AutoSize = true;
-            this.lblResidentPhoneNumber.Location = new System.Drawing.Point(721, 304);
-            this.lblResidentPhoneNumber.Name = "lblResidentPhoneNumber";
-            this.lblResidentPhoneNumber.Size = new System.Drawing.Size(68, 13);
-            this.lblResidentPhoneNumber.TabIndex = 37;
-            this.lblResidentPhoneNumber.Text = "تليفون المنزل";
-            // 
-            // lblLandPhoneNo
-            // 
-            this.lblLandPhoneNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblLandPhoneNo.AutoSize = true;
-            this.lblLandPhoneNo.Location = new System.Drawing.Point(720, 331);
-            this.lblLandPhoneNo.Name = "lblLandPhoneNo";
-            this.lblLandPhoneNo.Size = new System.Drawing.Size(69, 13);
-            this.lblLandPhoneNo.TabIndex = 38;
-            this.lblLandPhoneNo.Text = "تليفون العمل ";
             // 
             // lblEmail
             // 
@@ -523,36 +499,6 @@
             this.txtDegreeDescriptionArabic.TabIndex = 42;
             this.txtDegreeDescriptionArabic.TabStop = false;
             // 
-            // txtMobilePhoneNumber
-            // 
-            this.txtMobilePhoneNumber.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtMobilePhoneNumber.Location = new System.Drawing.Point(421, 273);
-            this.txtMobilePhoneNumber.Name = "txtMobilePhoneNumber";
-            this.txtMobilePhoneNumber.ReadOnly = true;
-            this.txtMobilePhoneNumber.Size = new System.Drawing.Size(250, 20);
-            this.txtMobilePhoneNumber.TabIndex = 43;
-            this.txtMobilePhoneNumber.TabStop = false;
-            // 
-            // txtResidentPhoneNumber
-            // 
-            this.txtResidentPhoneNumber.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtResidentPhoneNumber.Location = new System.Drawing.Point(421, 300);
-            this.txtResidentPhoneNumber.Name = "txtResidentPhoneNumber";
-            this.txtResidentPhoneNumber.ReadOnly = true;
-            this.txtResidentPhoneNumber.Size = new System.Drawing.Size(250, 20);
-            this.txtResidentPhoneNumber.TabIndex = 44;
-            this.txtResidentPhoneNumber.TabStop = false;
-            // 
-            // txtLandPhoneNo
-            // 
-            this.txtLandPhoneNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtLandPhoneNo.Location = new System.Drawing.Point(421, 327);
-            this.txtLandPhoneNo.Name = "txtLandPhoneNo";
-            this.txtLandPhoneNo.ReadOnly = true;
-            this.txtLandPhoneNo.Size = new System.Drawing.Size(250, 20);
-            this.txtLandPhoneNo.TabIndex = 45;
-            this.txtLandPhoneNo.TabStop = false;
-            // 
             // txtPOBox
             // 
             this.txtPOBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -573,85 +519,15 @@
             this.txtEmail.TabIndex = 47;
             this.txtEmail.TabStop = false;
             // 
-            // lblPassportExpiryDate
-            // 
-            this.lblPassportExpiryDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblPassportExpiryDate.AutoSize = true;
-            this.lblPassportExpiryDate.Location = new System.Drawing.Point(692, 493);
-            this.lblPassportExpiryDate.Name = "lblPassportExpiryDate";
-            this.lblPassportExpiryDate.Size = new System.Drawing.Size(97, 13);
-            this.lblPassportExpiryDate.TabIndex = 51;
-            this.lblPassportExpiryDate.Text = "تاريخ انتهاء الصلاحية";
-            // 
-            // lblPassportIssueDate
-            // 
-            this.lblPassportIssueDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblPassportIssueDate.AutoSize = true;
-            this.lblPassportIssueDate.Location = new System.Drawing.Point(726, 466);
-            this.lblPassportIssueDate.Name = "lblPassportIssueDate";
-            this.lblPassportIssueDate.Size = new System.Drawing.Size(63, 13);
-            this.lblPassportIssueDate.TabIndex = 49;
-            this.lblPassportIssueDate.Text = "تاريخ الإصدار";
-            // 
-            // lblPassportNumber
-            // 
-            this.lblPassportNumber.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblPassportNumber.AutoSize = true;
-            this.lblPassportNumber.Location = new System.Drawing.Point(711, 439);
-            this.lblPassportNumber.Name = "lblPassportNumber";
-            this.lblPassportNumber.Size = new System.Drawing.Size(78, 13);
-            this.lblPassportNumber.TabIndex = 48;
-            this.lblPassportNumber.Text = "رقم جواز السفر";
-            // 
-            // txtPassportNumber
-            // 
-            this.txtPassportNumber.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtPassportNumber.Location = new System.Drawing.Point(421, 435);
-            this.txtPassportNumber.Name = "txtPassportNumber";
-            this.txtPassportNumber.ReadOnly = true;
-            this.txtPassportNumber.Size = new System.Drawing.Size(250, 20);
-            this.txtPassportNumber.TabIndex = 52;
-            this.txtPassportNumber.TabStop = false;
-            // 
-            // txtPassportIssueDate
-            // 
-            this.txtPassportIssueDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtPassportIssueDate.Location = new System.Drawing.Point(421, 462);
-            this.txtPassportIssueDate.Name = "txtPassportIssueDate";
-            this.txtPassportIssueDate.ReadOnly = true;
-            this.txtPassportIssueDate.Size = new System.Drawing.Size(250, 20);
-            this.txtPassportIssueDate.TabIndex = 53;
-            this.txtPassportIssueDate.TabStop = false;
-            // 
-            // txtPassportExpiryDate
-            // 
-            this.txtPassportExpiryDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtPassportExpiryDate.Location = new System.Drawing.Point(421, 489);
-            this.txtPassportExpiryDate.Name = "txtPassportExpiryDate";
-            this.txtPassportExpiryDate.ReadOnly = true;
-            this.txtPassportExpiryDate.Size = new System.Drawing.Size(250, 20);
-            this.txtPassportExpiryDate.TabIndex = 54;
-            this.txtPassportExpiryDate.TabStop = false;
-            // 
-            // txtPassportCountryDescriptionArabic
-            // 
-            this.txtPassportCountryDescriptionArabic.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtPassportCountryDescriptionArabic.Location = new System.Drawing.Point(421, 516);
-            this.txtPassportCountryDescriptionArabic.Name = "txtPassportCountryDescriptionArabic";
-            this.txtPassportCountryDescriptionArabic.ReadOnly = true;
-            this.txtPassportCountryDescriptionArabic.Size = new System.Drawing.Size(250, 20);
-            this.txtPassportCountryDescriptionArabic.TabIndex = 55;
-            this.txtPassportCountryDescriptionArabic.TabStop = false;
-            // 
             // lblCompanyNameArabic
             // 
             this.lblCompanyNameArabic.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblCompanyNameArabic.AutoSize = true;
-            this.lblCompanyNameArabic.Location = new System.Drawing.Point(335, 385);
+            this.lblCompanyNameArabic.Location = new System.Drawing.Point(338, 385);
             this.lblCompanyNameArabic.Name = "lblCompanyNameArabic";
-            this.lblCompanyNameArabic.Size = new System.Drawing.Size(59, 13);
+            this.lblCompanyNameArabic.Size = new System.Drawing.Size(56, 13);
             this.lblCompanyNameArabic.TabIndex = 56;
-            this.lblCompanyNameArabic.Text = "مكان العمل";
+            this.lblCompanyNameArabic.Text = "جهة العمل";
             // 
             // lblOccupation
             // 
@@ -687,21 +563,21 @@
             // 
             this.lblEmirateDescriptionArabic.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblEmirateDescriptionArabic.AutoSize = true;
-            this.lblEmirateDescriptionArabic.Location = new System.Drawing.Point(318, 412);
+            this.lblEmirateDescriptionArabic.Location = new System.Drawing.Point(291, 412);
             this.lblEmirateDescriptionArabic.Name = "lblEmirateDescriptionArabic";
-            this.lblEmirateDescriptionArabic.Size = new System.Drawing.Size(76, 13);
+            this.lblEmirateDescriptionArabic.Size = new System.Drawing.Size(103, 13);
             this.lblEmirateDescriptionArabic.TabIndex = 60;
-            this.lblEmirateDescriptionArabic.Text = "الإقامة (الإمارة)";
+            this.lblEmirateDescriptionArabic.Text = "مكان السكن (الإمارة)";
             // 
             // lblCityDescriptionArabic
             // 
             this.lblCityDescriptionArabic.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblCityDescriptionArabic.AutoSize = true;
-            this.lblCityDescriptionArabic.Location = new System.Drawing.Point(314, 439);
+            this.lblCityDescriptionArabic.Location = new System.Drawing.Point(287, 439);
             this.lblCityDescriptionArabic.Name = "lblCityDescriptionArabic";
-            this.lblCityDescriptionArabic.Size = new System.Drawing.Size(80, 13);
+            this.lblCityDescriptionArabic.Size = new System.Drawing.Size(107, 13);
             this.lblCityDescriptionArabic.TabIndex = 61;
-            this.lblCityDescriptionArabic.Text = "الإقامة (المدينة)";
+            this.lblCityDescriptionArabic.Text = "مكان السكن (المدينة)";
             // 
             // txtEmirateDescriptionArabic
             // 
@@ -735,6 +611,226 @@
             this.txtStatus.TabStop = false;
             this.txtStatus.Text = "";
             this.txtStatus.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.txtStatus_LinkClicked);
+            // 
+            // lblPassportCountryDescriptionArabic
+            // 
+            this.lblPassportCountryDescriptionArabic.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblPassportCountryDescriptionArabic.AutoSize = true;
+            this.lblPassportCountryDescriptionArabic.Location = new System.Drawing.Point(725, 550);
+            this.lblPassportCountryDescriptionArabic.Name = "lblPassportCountryDescriptionArabic";
+            this.lblPassportCountryDescriptionArabic.Size = new System.Drawing.Size(64, 13);
+            this.lblPassportCountryDescriptionArabic.TabIndex = 50;
+            this.lblPassportCountryDescriptionArabic.Text = "مكان الإصدار";
+            // 
+            // lblPassportExpiryDate
+            // 
+            this.lblPassportExpiryDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblPassportExpiryDate.AutoSize = true;
+            this.lblPassportExpiryDate.Location = new System.Drawing.Point(692, 520);
+            this.lblPassportExpiryDate.Name = "lblPassportExpiryDate";
+            this.lblPassportExpiryDate.Size = new System.Drawing.Size(97, 13);
+            this.lblPassportExpiryDate.TabIndex = 51;
+            this.lblPassportExpiryDate.Text = "تاريخ انتهاء الصلاحية";
+            // 
+            // lblPassportIssueDate
+            // 
+            this.lblPassportIssueDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblPassportIssueDate.AutoSize = true;
+            this.lblPassportIssueDate.Location = new System.Drawing.Point(726, 493);
+            this.lblPassportIssueDate.Name = "lblPassportIssueDate";
+            this.lblPassportIssueDate.Size = new System.Drawing.Size(63, 13);
+            this.lblPassportIssueDate.TabIndex = 49;
+            this.lblPassportIssueDate.Text = "تاريخ الإصدار";
+            // 
+            // lblPassportNumber
+            // 
+            this.lblPassportNumber.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblPassportNumber.AutoSize = true;
+            this.lblPassportNumber.Location = new System.Drawing.Point(711, 466);
+            this.lblPassportNumber.Name = "lblPassportNumber";
+            this.lblPassportNumber.Size = new System.Drawing.Size(78, 13);
+            this.lblPassportNumber.TabIndex = 48;
+            this.lblPassportNumber.Text = "رقم جواز السفر";
+            // 
+            // lblLandPhoneNo
+            // 
+            this.lblLandPhoneNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblLandPhoneNo.AutoSize = true;
+            this.lblLandPhoneNo.Location = new System.Drawing.Point(720, 358);
+            this.lblLandPhoneNo.Name = "lblLandPhoneNo";
+            this.lblLandPhoneNo.Size = new System.Drawing.Size(69, 13);
+            this.lblLandPhoneNo.TabIndex = 38;
+            this.lblLandPhoneNo.Text = "تليفون العمل ";
+            // 
+            // lblResidentPhoneNumber
+            // 
+            this.lblResidentPhoneNumber.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblResidentPhoneNumber.AutoSize = true;
+            this.lblResidentPhoneNumber.Location = new System.Drawing.Point(721, 331);
+            this.lblResidentPhoneNumber.Name = "lblResidentPhoneNumber";
+            this.lblResidentPhoneNumber.Size = new System.Drawing.Size(68, 13);
+            this.lblResidentPhoneNumber.TabIndex = 37;
+            this.lblResidentPhoneNumber.Text = "تليفون المنزل";
+            // 
+            // lblMobilePhoneNumber
+            // 
+            this.lblMobilePhoneNumber.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblMobilePhoneNumber.AutoSize = true;
+            this.lblMobilePhoneNumber.Location = new System.Drawing.Point(734, 304);
+            this.lblMobilePhoneNumber.Name = "lblMobilePhoneNumber";
+            this.lblMobilePhoneNumber.Size = new System.Drawing.Size(55, 13);
+            this.lblMobilePhoneNumber.TabIndex = 36;
+            this.lblMobilePhoneNumber.Text = "رقم الجوال";
+            // 
+            // txtPassportCountryDescriptionArabic
+            // 
+            this.txtPassportCountryDescriptionArabic.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtPassportCountryDescriptionArabic.Location = new System.Drawing.Point(421, 546);
+            this.txtPassportCountryDescriptionArabic.Name = "txtPassportCountryDescriptionArabic";
+            this.txtPassportCountryDescriptionArabic.ReadOnly = true;
+            this.txtPassportCountryDescriptionArabic.Size = new System.Drawing.Size(250, 20);
+            this.txtPassportCountryDescriptionArabic.TabIndex = 55;
+            this.txtPassportCountryDescriptionArabic.TabStop = false;
+            // 
+            // txtPassportExpiryDate
+            // 
+            this.txtPassportExpiryDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtPassportExpiryDate.Location = new System.Drawing.Point(421, 516);
+            this.txtPassportExpiryDate.Name = "txtPassportExpiryDate";
+            this.txtPassportExpiryDate.ReadOnly = true;
+            this.txtPassportExpiryDate.Size = new System.Drawing.Size(250, 20);
+            this.txtPassportExpiryDate.TabIndex = 54;
+            this.txtPassportExpiryDate.TabStop = false;
+            // 
+            // txtPassportIssueDate
+            // 
+            this.txtPassportIssueDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtPassportIssueDate.Location = new System.Drawing.Point(421, 489);
+            this.txtPassportIssueDate.Name = "txtPassportIssueDate";
+            this.txtPassportIssueDate.ReadOnly = true;
+            this.txtPassportIssueDate.Size = new System.Drawing.Size(250, 20);
+            this.txtPassportIssueDate.TabIndex = 53;
+            this.txtPassportIssueDate.TabStop = false;
+            // 
+            // txtPassportNumber
+            // 
+            this.txtPassportNumber.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtPassportNumber.Location = new System.Drawing.Point(421, 462);
+            this.txtPassportNumber.Name = "txtPassportNumber";
+            this.txtPassportNumber.ReadOnly = true;
+            this.txtPassportNumber.Size = new System.Drawing.Size(250, 20);
+            this.txtPassportNumber.TabIndex = 52;
+            this.txtPassportNumber.TabStop = false;
+            // 
+            // txtLandPhoneNo
+            // 
+            this.txtLandPhoneNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtLandPhoneNo.Location = new System.Drawing.Point(421, 354);
+            this.txtLandPhoneNo.Name = "txtLandPhoneNo";
+            this.txtLandPhoneNo.ReadOnly = true;
+            this.txtLandPhoneNo.Size = new System.Drawing.Size(250, 20);
+            this.txtLandPhoneNo.TabIndex = 45;
+            this.txtLandPhoneNo.TabStop = false;
+            // 
+            // txtResidentPhoneNumber
+            // 
+            this.txtResidentPhoneNumber.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtResidentPhoneNumber.Location = new System.Drawing.Point(421, 327);
+            this.txtResidentPhoneNumber.Name = "txtResidentPhoneNumber";
+            this.txtResidentPhoneNumber.ReadOnly = true;
+            this.txtResidentPhoneNumber.Size = new System.Drawing.Size(250, 20);
+            this.txtResidentPhoneNumber.TabIndex = 44;
+            this.txtResidentPhoneNumber.TabStop = false;
+            // 
+            // txtMobilePhoneNumber
+            // 
+            this.txtMobilePhoneNumber.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtMobilePhoneNumber.Location = new System.Drawing.Point(421, 300);
+            this.txtMobilePhoneNumber.Name = "txtMobilePhoneNumber";
+            this.txtMobilePhoneNumber.ReadOnly = true;
+            this.txtMobilePhoneNumber.Size = new System.Drawing.Size(250, 20);
+            this.txtMobilePhoneNumber.TabIndex = 43;
+            this.txtMobilePhoneNumber.TabStop = false;
+            // 
+            // lblPlaceOfBirthArabic
+            // 
+            this.lblPlaceOfBirthArabic.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblPlaceOfBirthArabic.AutoSize = true;
+            this.lblPlaceOfBirthArabic.Location = new System.Drawing.Point(728, 196);
+            this.lblPlaceOfBirthArabic.Name = "lblPlaceOfBirthArabic";
+            this.lblPlaceOfBirthArabic.Size = new System.Drawing.Size(61, 13);
+            this.lblPlaceOfBirthArabic.TabIndex = 65;
+            this.lblPlaceOfBirthArabic.Text = "محل الميلاد";
+            // 
+            // txtPlaceOfBirthArabic
+            // 
+            this.txtPlaceOfBirthArabic.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtPlaceOfBirthArabic.Location = new System.Drawing.Point(421, 192);
+            this.txtPlaceOfBirthArabic.Name = "txtPlaceOfBirthArabic";
+            this.txtPlaceOfBirthArabic.ReadOnly = true;
+            this.txtPlaceOfBirthArabic.Size = new System.Drawing.Size(250, 20);
+            this.txtPlaceOfBirthArabic.TabIndex = 66;
+            this.txtPlaceOfBirthArabic.TabStop = false;
+            // 
+            // txtResidencyType
+            // 
+            this.txtResidencyType.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtResidencyType.Location = new System.Drawing.Point(26, 462);
+            this.txtResidencyType.Name = "txtResidencyType";
+            this.txtResidencyType.ReadOnly = true;
+            this.txtResidencyType.Size = new System.Drawing.Size(250, 20);
+            this.txtResidencyType.TabIndex = 67;
+            this.txtResidencyType.TabStop = false;
+            // 
+            // lblResidencyType
+            // 
+            this.lblResidencyType.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblResidencyType.AutoSize = true;
+            this.lblResidencyType.Location = new System.Drawing.Point(339, 466);
+            this.lblResidencyType.Name = "lblResidencyType";
+            this.lblResidencyType.Size = new System.Drawing.Size(55, 13);
+            this.lblResidencyType.TabIndex = 68;
+            this.lblResidencyType.Text = "نوع الإقامة";
+            // 
+            // txtResidencyNumber
+            // 
+            this.txtResidencyNumber.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtResidencyNumber.Location = new System.Drawing.Point(26, 489);
+            this.txtResidencyNumber.Name = "txtResidencyNumber";
+            this.txtResidencyNumber.ReadOnly = true;
+            this.txtResidencyNumber.Size = new System.Drawing.Size(250, 20);
+            this.txtResidencyNumber.TabIndex = 69;
+            this.txtResidencyNumber.TabStop = false;
+            // 
+            // lblResidencyNumber
+            // 
+            this.lblResidencyNumber.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblResidencyNumber.AutoSize = true;
+            this.lblResidencyNumber.Location = new System.Drawing.Point(337, 493);
+            this.lblResidencyNumber.Name = "lblResidencyNumber";
+            this.lblResidencyNumber.Size = new System.Drawing.Size(57, 13);
+            this.lblResidencyNumber.TabIndex = 70;
+            this.lblResidencyNumber.Text = "رقم الإقامة";
+            // 
+            // txtResidencyExpiryDate
+            // 
+            this.txtResidencyExpiryDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtResidencyExpiryDate.Location = new System.Drawing.Point(26, 516);
+            this.txtResidencyExpiryDate.Name = "txtResidencyExpiryDate";
+            this.txtResidencyExpiryDate.ReadOnly = true;
+            this.txtResidencyExpiryDate.Size = new System.Drawing.Size(250, 20);
+            this.txtResidencyExpiryDate.TabIndex = 71;
+            this.txtResidencyExpiryDate.TabStop = false;
+            // 
+            // lblResidencyExpiryDate
+            // 
+            this.lblResidencyExpiryDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblResidencyExpiryDate.AutoSize = true;
+            this.lblResidencyExpiryDate.Location = new System.Drawing.Point(307, 520);
+            this.lblResidencyExpiryDate.Name = "lblResidencyExpiryDate";
+            this.lblResidencyExpiryDate.Size = new System.Drawing.Size(87, 13);
+            this.lblResidencyExpiryDate.TabIndex = 72;
+            this.lblResidencyExpiryDate.Text = "تاريخ انتهاء الإقامة";
             // 
             // MainForm
             // 
@@ -815,6 +911,14 @@
         private System.Windows.Forms.TextBox txtEmirateDescriptionArabic;
         private System.Windows.Forms.TextBox txtCityDescriptionArabic;
         private System.Windows.Forms.RichTextBox txtStatus;
+        private System.Windows.Forms.Label lblPlaceOfBirthArabic;
+        private System.Windows.Forms.TextBox txtPlaceOfBirthArabic;
+        private System.Windows.Forms.TextBox txtResidencyType;
+        private System.Windows.Forms.Label lblResidencyType;
+        private System.Windows.Forms.TextBox txtResidencyNumber;
+        private System.Windows.Forms.Label lblResidencyNumber;
+        private System.Windows.Forms.TextBox txtResidencyExpiryDate;
+        private System.Windows.Forms.Label lblResidencyExpiryDate;
     }
 }
 
