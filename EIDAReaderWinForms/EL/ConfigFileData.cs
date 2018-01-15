@@ -20,6 +20,14 @@ namespace EIDAReaderWinForms.EL
             }
         }
 
+        public static string ImageLibraryName
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["ImageLibraryName"];
+            }
+        }
+
         public static string DispForm
         {
             get
