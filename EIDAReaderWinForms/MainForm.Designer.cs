@@ -626,21 +626,21 @@
             // 
             this.lblPassportExpiryDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblPassportExpiryDate.AutoSize = true;
-            this.lblPassportExpiryDate.Location = new System.Drawing.Point(692, 520);
+            this.lblPassportExpiryDate.Location = new System.Drawing.Point(681, 520);
             this.lblPassportExpiryDate.Name = "lblPassportExpiryDate";
-            this.lblPassportExpiryDate.Size = new System.Drawing.Size(97, 13);
+            this.lblPassportExpiryDate.Size = new System.Drawing.Size(108, 13);
             this.lblPassportExpiryDate.TabIndex = 51;
-            this.lblPassportExpiryDate.Text = "تاريخ انتهاء الصلاحية";
+            this.lblPassportExpiryDate.Text = "تاريخ انتهاء جواز السفر";
             // 
             // lblPassportIssueDate
             // 
             this.lblPassportIssueDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblPassportIssueDate.AutoSize = true;
-            this.lblPassportIssueDate.Location = new System.Drawing.Point(726, 493);
+            this.lblPassportIssueDate.Location = new System.Drawing.Point(679, 493);
             this.lblPassportIssueDate.Name = "lblPassportIssueDate";
-            this.lblPassportIssueDate.Size = new System.Drawing.Size(63, 13);
+            this.lblPassportIssueDate.Size = new System.Drawing.Size(110, 13);
             this.lblPassportIssueDate.TabIndex = 49;
-            this.lblPassportIssueDate.Text = "تاريخ الإصدار";
+            this.lblPassportIssueDate.Text = "تاريخ إصدار جواز السفر";
             // 
             // lblPassportNumber
             // 

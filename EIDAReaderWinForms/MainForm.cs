@@ -93,7 +93,7 @@ namespace EIDAReaderWinForms
 
                 var fileCreationInformation = new FileCreationInformation();
                 fileCreationInformation.Content = publicDataEx.Photography;
-                fileCreationInformation.Url = txtIDNumber.Text + ".bmp";
+                fileCreationInformation.Url = txtIDNumber.Text + ".jpg";
                 fileCreationInformation.Overwrite = true;
                 File uploadedImage = ImageLibrary.RootFolder.Files.Add(fileCreationInformation);
                 context.Load(uploadedImage);
