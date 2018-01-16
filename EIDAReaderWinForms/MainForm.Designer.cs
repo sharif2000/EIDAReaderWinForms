@@ -606,7 +606,7 @@
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.ReadOnly = true;
             this.tblContainer.SetRowSpan(this.txtStatus, 2);
-            this.txtStatus.Size = new System.Drawing.Size(390, 42);
+            this.txtStatus.Size = new System.Drawing.Size(390, 45);
             this.txtStatus.TabIndex = 64;
             this.txtStatus.TabStop = false;
             this.txtStatus.Text = "";

@@ -4,6 +4,8 @@ using EmiratesId.AE.Utils;
 using Microsoft.SharePoint.Client;
 using System;
 using System.Drawing;
+using System.Net;
+using System.Net.NetworkInformation;
 using System.Windows.Forms;
 
 namespace EIDAReaderWinForms
@@ -57,8 +59,9 @@ namespace EIDAReaderWinForms
                 txtResidencyNumber.Text = Utils.ByteArrayToUTF8String(publicDataEx.ResidencyNumber);
                 txtResidencyExpiryDate.Text = Utils.ByteArrayToStringDate(publicDataEx.ResidencyExpiryDate);
 
-                txtStatus.Text = "تم قراءة بيانات البطاقة بنجاح";
                 txtStatus.BackColor = Color.LightGreen;
+                txtStatus.Text = "تم قراءة بيانات البطاقة بنجاح";
+                
             }
             catch (Exception ex)
             {
@@ -155,7 +158,31 @@ namespace EIDAReaderWinForms
                 context.Load(newItem);//Load the new item
                 context.ExecuteQuery();
 
-                txtStatus.Text = ConfigFileData.DispForm + newItem.Id.ToString();
+
+                if (newItem.Id>0)
+                {
+                    txtStatus.BackColor = Color.LightGreen;
+                    string newItemLink = ConfigFileData.DispForm + newItem.Id.ToString();
+                    string newItemSuccessMessage = "تم إنشاء سجل جديد بنجاح. اضغط الرابط التالى للمعاينة : ";
+                    txtStatus.Text = newItemSuccessMessage +"\n"+ newItemLink;
+
+                }
+                else
+                {
+                    txtStatus.BackColor = Color.LightCoral;
+                    txtStatus.Text = "خطأ : حدث خطأ اثناء محاولة إضافة سجل جديد. ";
+                }
+            }
+
+            catch (NetworkInformationException )
+            {
+                txtStatus.BackColor = Color.LightCoral;
+                txtStatus.Text = "خطأ : تعذر الإتصال بقاعدة البيانات. برجاء التأكد من حالة شبكة الإتصال";
+            }
+            catch (WebException )
+            {
+                txtStatus.BackColor = Color.LightCoral;
+                txtStatus.Text = "خطأ : تعذر الإتصال بقاعدة البيانات. برجاء التأكد من حالة شبكة الإتصال";
             }
             catch (Exception ex)
             {
