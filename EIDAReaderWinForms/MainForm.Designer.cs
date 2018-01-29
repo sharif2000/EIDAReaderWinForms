@@ -93,8 +93,11 @@
             this.lblResidencyNumber = new System.Windows.Forms.Label();
             this.txtResidencyExpiryDate = new System.Windows.Forms.TextBox();
             this.lblResidencyExpiryDate = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.cboRequestTypes = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.picPhotography)).BeginInit();
             this.tblContainer.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtIDNumber
@@ -280,12 +283,11 @@
             // btnSaveToSP
             // 
             this.btnSaveToSP.BackColor = System.Drawing.Color.Azure;
-            this.btnSaveToSP.Location = new System.Drawing.Point(567, 3);
+            this.btnSaveToSP.Location = new System.Drawing.Point(167, 4);
             this.btnSaveToSP.Name = "btnSaveToSP";
-            this.tblContainer.SetRowSpan(this.btnSaveToSP, 3);
-            this.btnSaveToSP.Size = new System.Drawing.Size(104, 68);
+            this.btnSaveToSP.Size = new System.Drawing.Size(104, 67);
             this.btnSaveToSP.TabIndex = 5;
-            this.btnSaveToSP.Text = "حفظ بقاعدة البيانات";
+            this.btnSaveToSP.Text = "تقديم طلب جديد";
             this.btnSaveToSP.UseVisualStyleBackColor = false;
             this.btnSaveToSP.Click += new System.EventHandler(this.btnSaveToSP_Click);
             // 
@@ -353,7 +355,6 @@
             this.tblContainer.Controls.Add(this.lblArabicFullName, 0, 3);
             this.tblContainer.Controls.Add(this.txtArabicFullName, 1, 3);
             this.tblContainer.Controls.Add(this.btnReadCard, 0, 0);
-            this.tblContainer.Controls.Add(this.btnSaveToSP, 1, 0);
             this.tblContainer.Controls.Add(this.lblStatus, 2, 0);
             this.tblContainer.Controls.Add(this.picPhotography, 3, 3);
             this.tblContainer.Controls.Add(this.txtDateOfBirth, 1, 6);
@@ -411,6 +412,7 @@
             this.tblContainer.Controls.Add(this.lblResidencyNumber, 2, 18);
             this.tblContainer.Controls.Add(this.txtResidencyExpiryDate, 3, 19);
             this.tblContainer.Controls.Add(this.lblResidencyExpiryDate, 2, 19);
+            this.tblContainer.Controls.Add(this.panel1, 1, 0);
             this.tblContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblContainer.Location = new System.Drawing.Point(0, 0);
             this.tblContainer.Name = "tblContainer";
@@ -436,6 +438,8 @@
             this.tblContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
             this.tblContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
             this.tblContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
+            this.tblContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tblContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tblContainer.Size = new System.Drawing.Size(792, 573);
             this.tblContainer.TabIndex = 0;
             // 
@@ -832,6 +836,26 @@
             this.lblResidencyExpiryDate.TabIndex = 72;
             this.lblResidencyExpiryDate.Text = "تاريخ انتهاء الإقامة";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.cboRequestTypes);
+            this.panel1.Controls.Add(this.btnSaveToSP);
+            this.panel1.Location = new System.Drawing.Point(403, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.tblContainer.SetRowSpan(this.panel1, 3);
+            this.panel1.Size = new System.Drawing.Size(271, 81);
+            this.panel1.TabIndex = 73;
+            // 
+            // cboRequestTypes
+            // 
+            this.cboRequestTypes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboRequestTypes.FormattingEnabled = true;
+            this.cboRequestTypes.Location = new System.Drawing.Point(3, 25);
+            this.cboRequestTypes.Name = "cboRequestTypes";
+            this.cboRequestTypes.Size = new System.Drawing.Size(158, 21);
+            this.cboRequestTypes.TabIndex = 6;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -845,9 +869,11 @@
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "قارئ بطاقة الهوية";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picPhotography)).EndInit();
             this.tblContainer.ResumeLayout(false);
             this.tblContainer.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -918,6 +944,8 @@
         private System.Windows.Forms.Label lblResidencyNumber;
         private System.Windows.Forms.TextBox txtResidencyExpiryDate;
         private System.Windows.Forms.Label lblResidencyExpiryDate;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ComboBox cboRequestTypes;
     }
 }
 

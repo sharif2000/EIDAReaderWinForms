@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using System.Collections.Specialized;
+using System.Configuration;
 
 namespace EIDAReaderWinForms.EL
 {
@@ -33,6 +34,53 @@ namespace EIDAReaderWinForms.EL
             get
             {
                 return ConfigurationManager.AppSettings["DispForm"];
+            }
+        }
+        public static string InfoPathEditForm
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["InfoPathEditForm"];
+            }
+        }
+
+        public static NameValueCollection RequestTypes
+        {
+            get
+            {
+                return ConfigurationManager.GetSection("RequestTypes/appSettings") as NameValueCollection;
+            }
+        }
+
+        public static string UserName
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["UserName"];
+            }
+        }
+
+        public static string Password
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["Password"];
+            }
+        }
+
+        public static string NewHajjRequestForm
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["NewHajjRequestForm"];
+            }
+        }
+
+        public static string NewAidRequestForm
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["NewAidRequestForm"];
             }
         }
     }

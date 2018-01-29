@@ -4,6 +4,7 @@ using EmiratesId.AE.Utils;
 using Microsoft.SharePoint.Client;
 using System;
 using System.Drawing;
+using System.Globalization;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Windows.Forms;
@@ -17,6 +18,18 @@ namespace EIDAReaderWinForms
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            foreach (string key in ConfigFileData.RequestTypes)
+            {
+                ComboboxItem item = new ComboboxItem();
+                item.Text = key;
+                item.Value = ConfigFileData.RequestTypes[key];
+                cboRequestTypes.Items.Add(item);
+            }
+            cboRequestTypes.SelectedIndex = 0;
         }
 
         private void btnReadCard_Click(object sender, EventArgs e)
@@ -61,7 +74,6 @@ namespace EIDAReaderWinForms
 
                 txtStatus.BackColor = Color.LightGreen;
                 txtStatus.Text = "تم قراءة بيانات البطاقة بنجاح";
-                
             }
             catch (Exception ex)
             {
@@ -115,13 +127,13 @@ namespace EIDAReaderWinForms
                 newItem["NationalityAr"] = txtNationalityAr.Text;
 
                 if (!String.IsNullOrEmpty(txtIssueDate.Text))
-                    newItem["IssueDate"] = DateTime.Parse(txtIssueDate.Text);
+                    newItem["IssueDate"] = DateTime.Parse(txtIssueDate.Text,new CultureInfo("en-GB"));
 
                 if (!String.IsNullOrEmpty(txtExpiryDate.Text))
-                    newItem["ExpiryDate"] = DateTime.Parse(txtExpiryDate.Text);
+                    newItem["ExpiryDate"] = DateTime.Parse(txtExpiryDate.Text, new CultureInfo("en-GB"));
 
                 if (!String.IsNullOrEmpty(txtDateOfBirth.Text))
-                    newItem["DateOfBirth"] = DateTime.Parse(txtDateOfBirth.Text);
+                    newItem["DateOfBirth"] = DateTime.Parse(txtDateOfBirth.Text ,new CultureInfo("en-GB"));
 
                 newItem["PlaceOfBirthArabic"] = txtPlaceOfBirthArabic.Text;
                 newItem["Sex"] = txtSex.Text;
@@ -138,10 +150,10 @@ namespace EIDAReaderWinForms
                 newItem["PassportNumber"] = txtPassportNumber.Text;
 
                 if (!String.IsNullOrEmpty(txtPassportIssueDate.Text))
-                    newItem["PassportIssueDate"] = DateTime.Parse(txtPassportIssueDate.Text);
+                    newItem["PassportIssueDate"] = DateTime.Parse(txtPassportIssueDate.Text, new CultureInfo("en-GB"));
 
                 if (!String.IsNullOrEmpty(txtPassportExpiryDate.Text))
-                    newItem["PassportExpiryDate"] = DateTime.Parse(txtPassportExpiryDate.Text);
+                    newItem["PassportExpiryDate"] = DateTime.Parse(txtPassportExpiryDate.Text, new CultureInfo("en-GB"));
 
                 newItem["PassportCountryDescriptionArabic"] = txtPassportCountryDescriptionArabic.Text;
                 newItem["Occupation"] = txtOccupation.Text;
@@ -152,20 +164,21 @@ namespace EIDAReaderWinForms
                 newItem["ResidencyNumber"] = txtResidencyNumber.Text;
 
                 if (!String.IsNullOrEmpty(txtResidencyExpiryDate.Text))
-                    newItem["ResidencyExpiryDate"] = DateTime.Parse(txtResidencyExpiryDate.Text);
+                    newItem["ResidencyExpiryDate"] = DateTime.Parse(txtResidencyExpiryDate.Text, new CultureInfo("en-GB"));
 
                 newItem.Update();
                 context.Load(newItem);//Load the new item
+                context.Credentials = new NetworkCredential(ConfigFileData.UserName, ConfigFileData.Password);
                 context.ExecuteQuery();
 
-
-                if (newItem.Id>0)
+                if (newItem.Id > 0)
                 {
                     txtStatus.BackColor = Color.LightGreen;
-                    string newItemLink = ConfigFileData.DispForm + newItem.Id.ToString();
+                    string newItemLink = ConfigFileData.InfoPathEditForm + newItem.Id.ToString();
                     string newItemSuccessMessage = "تم إنشاء سجل جديد بنجاح. اضغط الرابط التالى للمعاينة : ";
-                    txtStatus.Text = newItemSuccessMessage +"\n"+ newItemLink;
+                    txtStatus.Text = newItemSuccessMessage + "\n" + newItemLink;
 
+                    OpenSelectedRequestLink_InBrowser();
                 }
                 else
                 {
@@ -173,13 +186,12 @@ namespace EIDAReaderWinForms
                     txtStatus.Text = "خطأ : حدث خطأ اثناء محاولة إضافة سجل جديد. ";
                 }
             }
-
-            catch (NetworkInformationException )
+            catch (NetworkInformationException)
             {
                 txtStatus.BackColor = Color.LightCoral;
                 txtStatus.Text = "خطأ : تعذر الإتصال بقاعدة البيانات. برجاء التأكد من حالة شبكة الإتصال";
             }
-            catch (WebException )
+            catch (WebException)
             {
                 txtStatus.BackColor = Color.LightCoral;
                 txtStatus.Text = "خطأ : تعذر الإتصال بقاعدة البيانات. برجاء التأكد من حالة شبكة الإتصال";
@@ -188,6 +200,21 @@ namespace EIDAReaderWinForms
             {
                 txtStatus.BackColor = Color.LightCoral;
                 txtStatus.Text = ex.Message;
+            }
+        }
+
+        private void OpenSelectedRequestLink_InBrowser()
+        {
+
+            ComboboxItem cboItem = (ComboboxItem)cboRequestTypes.SelectedItem;
+
+            if (cboItem.Value.ToString() == "1")
+            {
+                System.Diagnostics.Process.Start(ConfigFileData.NewHajjRequestForm);
+            }
+            else if (cboItem.Value.ToString() == "2")
+            {
+                System.Diagnostics.Process.Start(ConfigFileData.NewAidRequestForm);
             }
         }
 
