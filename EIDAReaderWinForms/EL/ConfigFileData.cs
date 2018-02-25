@@ -36,13 +36,6 @@ namespace EIDAReaderWinForms.EL
                 return ConfigurationManager.AppSettings["DispForm"];
             }
         }
-        public static string InfoPathEditForm
-        {
-            get
-            {
-                return ConfigurationManager.AppSettings["InfoPathEditForm"];
-            }
-        }
 
         public static NameValueCollection RequestTypes
         {

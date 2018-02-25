@@ -13,12 +13,20 @@ namespace EIDAReaderWinForms
 {
     public partial class MainForm : System.Windows.Forms.Form
     {
-        CardHolderPublicDataEx publicDataEx;
+        #region Global
+
+        public CardHolderPublicDataEx publicDataEx;
+
+        #endregion Global
+
+        #region Constructor
 
         public MainForm()
         {
             InitializeComponent();
         }
+
+        #endregion Constructor
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -122,18 +130,18 @@ namespace EIDAReaderWinForms
                 newItem["MotherFullNameArabic"] = txtMotherFullNameArabic.Text;
                 newItem["IDNumber"] = txtIDNumber.Text;
 
-                newItem["Photography"] = ConfigFileData.SP_URL + "/" + "TestForClientsImages" + "/" + uploadedImage.Name;
+                newItem["Photography"] = ConfigFileData.SP_URL + "/" + ConfigFileData.ImageLibraryName + "/" + uploadedImage.Name;
 
                 newItem["NationalityAr"] = txtNationalityAr.Text;
 
                 if (!String.IsNullOrEmpty(txtIssueDate.Text))
-                    newItem["IssueDate"] = DateTime.Parse(txtIssueDate.Text,new CultureInfo("en-GB"));
+                    newItem["IssueDate"] = DateTime.Parse(txtIssueDate.Text, new CultureInfo("en-GB"));
 
                 if (!String.IsNullOrEmpty(txtExpiryDate.Text))
                     newItem["ExpiryDate"] = DateTime.Parse(txtExpiryDate.Text, new CultureInfo("en-GB"));
 
                 if (!String.IsNullOrEmpty(txtDateOfBirth.Text))
-                    newItem["DateOfBirth"] = DateTime.Parse(txtDateOfBirth.Text ,new CultureInfo("en-GB"));
+                    newItem["DateOfBirth"] = DateTime.Parse(txtDateOfBirth.Text, new CultureInfo("en-GB"));
 
                 newItem["PlaceOfBirthArabic"] = txtPlaceOfBirthArabic.Text;
                 newItem["Sex"] = txtSex.Text;
@@ -174,11 +182,11 @@ namespace EIDAReaderWinForms
                 if (newItem.Id > 0)
                 {
                     txtStatus.BackColor = Color.LightGreen;
-                    string newItemLink = ConfigFileData.InfoPathEditForm + newItem.Id.ToString();
+                    string newItemLink = ConfigFileData.DispForm + newItem.Id.ToString();
                     string newItemSuccessMessage = "تم إنشاء سجل جديد بنجاح. اضغط الرابط التالى للمعاينة : ";
                     txtStatus.Text = newItemSuccessMessage + "\n" + newItemLink;
 
-                    OpenSelectedRequestLink_InBrowser();
+                    OpenSelectedRequestLink_InBrowser(newItem.Id);
                 }
                 else
                 {
@@ -203,18 +211,17 @@ namespace EIDAReaderWinForms
             }
         }
 
-        private void OpenSelectedRequestLink_InBrowser()
+        private void OpenSelectedRequestLink_InBrowser(int newItemID)
         {
-
             ComboboxItem cboItem = (ComboboxItem)cboRequestTypes.SelectedItem;
 
             if (cboItem.Value.ToString() == "1")
             {
-                System.Diagnostics.Process.Start(ConfigFileData.NewHajjRequestForm);
+                System.Diagnostics.Process.Start(ConfigFileData.NewAidRequestForm + "?cid=" + newItemID);
             }
             else if (cboItem.Value.ToString() == "2")
             {
-                System.Diagnostics.Process.Start(ConfigFileData.NewAidRequestForm);
+                System.Diagnostics.Process.Start(ConfigFileData.NewHajjRequestForm + "?cid=" + newItemID);
             }
         }
 
