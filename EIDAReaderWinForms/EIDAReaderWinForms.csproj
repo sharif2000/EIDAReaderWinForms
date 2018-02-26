@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ChipIcon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.SharePoint.Client, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -100,6 +103,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ChipIcon.ico" />
     <Content Include="lib\Microsoft.SharePoint.Client.dll" />
     <Content Include="lib\Microsoft.SharePoint.Client.Runtime.dll" />
     <Content Include="lib\UAE_IDCardCSharpAPI.dll" />
