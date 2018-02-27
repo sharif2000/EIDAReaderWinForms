@@ -16,6 +16,8 @@ namespace EIDAReaderWinForms
         #region Global
 
         public CardHolderPublicDataEx publicDataEx;
+        bool IsUserExisting = false;
+        string ExistingUserID;
 
         #endregion Global
 
@@ -80,6 +82,42 @@ namespace EIDAReaderWinForms
                 txtResidencyNumber.Text = Utils.ByteArrayToUTF8String(publicDataEx.ResidencyNumber);
                 txtResidencyExpiryDate.Text = Utils.ByteArrayToStringDate(publicDataEx.ResidencyExpiryDate);
 
+                #region Checking If User Existing
+
+                ClientContext context = new ClientContext(ConfigFileData.SP_URL);
+
+                List TestForClientsList = context.Web.Lists.GetByTitle(ConfigFileData.ListName);
+
+                bool CheckIfUserExisting = get_CheckIfUserExisting_value();
+
+                if (CheckIfUserExisting)
+                {
+                    CamlQuery camlQuery = new CamlQuery();
+                    camlQuery.ViewXml =
+                       @"<View>
+                                <Query>
+                                   <Where><Eq><FieldRef Name='IDNumber' /><Value Type='Text'>" + txtIDNumber.Text + @"</Value></Eq></Where>
+                                </Query>
+                                 <ViewFields><FieldRef Name='ID' /></ViewFields>
+                          </View>";
+
+                    ListItemCollection listItems = TestForClientsList.GetItems(camlQuery);
+                    context.Load(listItems);
+                    context.Credentials = new NetworkCredential(ConfigFileData.UserName, ConfigFileData.Password);
+                    context.ExecuteQuery();
+
+                    if (listItems.Count > 0)
+                    {
+                        txtStatus.BackColor = Color.SkyBlue;
+                        txtStatus.Text = "تنويه : يوجد بالفعل سجل مسبق لهذه البطاقة ";
+                        IsUserExisting = true;
+                        ExistingUserID = listItems[0]["ID"].ToString();
+                        return;
+                    }
+                }
+
+                #endregion Checking If User Existing
+
                 txtStatus.BackColor = Color.LightGreen;
                 txtStatus.Text = "تم قراءة بيانات البطاقة بنجاح";
             }
@@ -108,7 +146,12 @@ namespace EIDAReaderWinForms
         {
             try
             {
-                // Starting with ClientContext, the constructor requires a URL to the server running SharePoint.
+                if (IsUserExisting)
+                {
+                    OpenSelectedRequestLink_InBrowser(ExistingUserID);
+                    return;
+                }
+
                 ClientContext context = new ClientContext(ConfigFileData.SP_URL);
 
                 List ImageLibrary = context.Web.Lists.GetByTitle(ConfigFileData.ImageLibraryName);
@@ -186,7 +229,7 @@ namespace EIDAReaderWinForms
                     string newItemSuccessMessage = "تم إنشاء سجل جديد بنجاح. اضغط الرابط التالى للمعاينة : ";
                     txtStatus.Text = newItemSuccessMessage + "\n" + newItemLink;
 
-                    OpenSelectedRequestLink_InBrowser(newItem.Id);
+                    OpenSelectedRequestLink_InBrowser(newItem.Id.ToString());
                 }
                 else
                 {
@@ -211,7 +254,19 @@ namespace EIDAReaderWinForms
             }
         }
 
-        private void OpenSelectedRequestLink_InBrowser(int newItemID)
+        private bool get_CheckIfUserExisting_value()
+        {
+            if (ConfigFileData.CheckIfUserExisting.ToLower() == "false")
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private void OpenSelectedRequestLink_InBrowser(string newItemID)
         {
             ComboboxItem cboItem = (ComboboxItem)cboRequestTypes.SelectedItem;
 

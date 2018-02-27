@@ -76,5 +76,13 @@ namespace EIDAReaderWinForms.EL
                 return ConfigurationManager.AppSettings["NewAidRequestForm"];
             }
         }
+
+        public static string CheckIfUserExisting
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["CheckIfUserExisting"];
+            }
+        }
     }
 }
