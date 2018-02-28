@@ -84,5 +84,12 @@ namespace EIDAReaderWinForms.EL
                 return ConfigurationManager.AppSettings["CheckIfUserExisting"];
             }
         }
+
+        public static string PreviousRequestsLink {
+            get
+            {
+                return ConfigurationManager.AppSettings["PreviousRequestsLink"];
+            }
+        }
     }
 }

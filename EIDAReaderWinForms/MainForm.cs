@@ -108,10 +108,11 @@ namespace EIDAReaderWinForms
 
                     if (listItems.Count > 0)
                     {
-                        txtStatus.BackColor = Color.SkyBlue;
-                        txtStatus.Text = "تنويه : يوجد بالفعل سجل مسبق لهذه البطاقة ";
                         IsUserExisting = true;
                         ExistingUserID = listItems[0]["ID"].ToString();
+                        string PreviousRequestsLink = ConfigFileData.PreviousRequestsLink + ExistingUserID;
+                        txtStatus.Text = "البطاقة مسجلة مسبقا. اضغط الرابط التالى لعرض الطلبات السابقة " + "\n" + PreviousRequestsLink;
+                        txtStatus.BackColor = Color.SkyBlue;
                         return;
                     }
                 }
